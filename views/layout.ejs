@@ -50,7 +50,7 @@
 	<script src="js/plugins.js"></script>
 	<script src="/socket.io/socket.io.js"></script>
 	<script>
-		var socket = io.connect('http://localhost');
+		var socket = io.connect('http://remot.io');
 		socket.on('news', function (data) {
 			console.log(data);
 			socket.emit('my other event', { my: 'data' });
