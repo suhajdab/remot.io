@@ -41,3 +41,6 @@ publish
 # build script local files
 build/buildinfo.properties
 build/config/buildinfo.properties
+
+#cure requirement
+node_modules
