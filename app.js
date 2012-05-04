@@ -7,6 +7,6 @@
 
 var http = require('http');
 http.createServer(function (req, res) {
-    res.writeHead(200, {'Content-Type': 'text/plain'});
-    res.end('Hello World\nI am remot.io');
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end('<title>remot.io</title><h1>remote.io</h1>');
 }).listen(3000);
