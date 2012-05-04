@@ -12,10 +12,10 @@
  */
 
 var express = require('express'),
-	routes = require('./routes'),
-	io = require('socket.io').listen(express);
+	routes = require('./routes');
 
-var app = module.exports = express.createServer();
+var app = module.exports = express.createServer(),
+	io = require('socket.io').listen(app);
 
 // Configuration
 
@@ -42,11 +42,10 @@ app.get('/', routes.index);
 
 app.listen(3000);
 
-/*
+
 io.sockets.on('connection', function (socket) {
   socket.emit('news', { hello: 'world' });
   socket.on('my other event', function (data) {
     //console.log(data);
   });
 });
-*/
