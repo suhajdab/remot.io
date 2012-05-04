@@ -8,5 +8,5 @@
 var http = require('http');
 http.createServer(function (req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'});
-    res.end('<title>remot.io</title><h1>remote.io</h1>');
+    res.end('<title>remot.io</title><h1>remot.io</h1>');
 }).listen(3000);
