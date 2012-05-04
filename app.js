@@ -12,8 +12,8 @@
  */
 
 var express = require('express'),
-	routes = require('./routes');
-//	io = require('socket.io').listen(express);
+	routes = require('./routes'),
+	io = require('socket.io').listen(express);
 
 var app = module.exports = express.createServer();
 
