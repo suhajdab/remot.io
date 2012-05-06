@@ -48,7 +48,7 @@
 
 	<!-- scripts concatenated and minified via build script -->
 	<script src="js/plugins.js"></script>
-	<script src="/socket.io/socket.io.js"></script>
+	<script src="js/libs/socket.io.js"></script>
 	<script>
 		var socket = io.connect( '//' + location.host  );
 		socket.on('news', function (data) {
