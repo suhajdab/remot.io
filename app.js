@@ -40,7 +40,7 @@ app.configure('production', function(){
 
 app.get('/', routes.index);
 
-app.listen(3000);
+app.listen(80);
 
 
 io.sockets.on('connection', function (socket) {
