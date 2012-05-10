@@ -2,6 +2,7 @@
  * TODO: if no hash detected generate it
  * TODO: broadcast server events to registered clients only
  * TODO: inform server of client connection status
+ * TODO: [future] offer to connect to devices on same ip
  * 
  * TODO: https://github.com/h5bp/server-configs/blob/master/node/node.js ??
  */
@@ -16,6 +17,7 @@ var express = require('express'),
 
 var app = module.exports = express.createServer(),
 	io = require('socket.io').listen(app);
+
 
 // Configuration
 
@@ -37,15 +39,18 @@ app.configure('production', function(){
 });
 
 // Routes
-
+//  controller route
+app.get('/:id/c', routes.controller);
+//  receiver/config/main route
+app.get('/:id/bm.js', routes.bookmarklet);
 app.get('/', routes.index);
 
 app.listen(80);
 
 
 io.sockets.on('connection', function (socket) {
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', function (data) {
-    //console.log(data);
+  socket.on('control', function (data) {
+    socket.broadcast.emit('control', data );
+    console.log(data)
   });
 });
