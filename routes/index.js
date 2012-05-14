@@ -9,7 +9,8 @@ var descr = 'remot.io - a free, simple remote for your html presentations',
 
 exports.index = function(req, res){
 	//console.log(req);
-	res.render( 'index', { 
+	res.render( 'index', {
+		layout: 'default-layout',
 		title: title, 
 		descr: descr
 	});
@@ -18,7 +19,7 @@ exports.index = function(req, res){
 exports.controller = function(req, res){
 	//console.log(req.route.params);
 	res.render( 'controller', { 
-		layout: 'h5mbp',
+		layout: 'controller-layout',
 		title: 'remot.io',
 		descr: descr
 	})

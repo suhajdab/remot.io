@@ -44,3 +44,4 @@ build/config/buildinfo.properties
 
 #cure requirement
 node_modules
+public/js/compact/
