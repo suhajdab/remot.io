@@ -1,18 +1,9 @@
-/**
-
- */
-
-(function(){
-	var rio = {}, socket;
-
-	var prefix = 'remotio';
-
-	if (!io) throw ('socketio not found');
-	rio.socket = io.connect( '//' + location.host  );
+(function () {
+	'use strict'
 
 	function getData () {
 		var str = localStorage.getItem( prefix + '-data' );
-		return JSON.parse(str);
+		return JSON.parse(str) || {};
 	}
 
 	function setData () {
@@ -21,9 +12,8 @@
 		localStorage.setItem( prefix + '-data', str );
 	}
 
-	rio.data = getData();
-
-	window.remot = {
-		io: rio
-	}
+	remot.io.storage = {
+		get: getData,
+		set: setData
+	};
 })();

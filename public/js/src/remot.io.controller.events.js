@@ -3,10 +3,10 @@
  * TODO: interpret touch events ( swipe up/down/left/right )
  * TODO[future]: debounce certain events
  * TODO: keep id in local storage
+ * TODO: status feedback: disconnected (red), connected without receiver (orange), connected to receiver (green)
  */
 
 (function ( $ ) {
-	var rio = window.remot.io;
 
 	function attachListeners() {
 		$( document )
@@ -14,22 +14,18 @@
 			.on( 'swipeRight', 	onSwipe )
 			.on( 'swipeUp', 	onSwipe )
 			.on( 'swipeDown', 	onSwipe )
-			.on( 'touchmove', 	preventMove );
+			.on( 'touchmove', 	onTouchMove );
 	}
 
 	function onSwipe ( e ) {
-		rio.socket.emit( 'control', { event: e.type });
+		remot.io.socket.emit( 'control', { event: e.type });
 		document.body.className = e.type;
 	}
 
-	function preventMove ( e ) {
+	function onTouchMove ( e ) {
 		e.preventDefault();
 	}
 
-	init = function () {
-		attachListeners();
-	};
-
-	init();
+	attachListeners();
 
 })( Zepto );
