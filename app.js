@@ -27,7 +27,7 @@ var compact = require('compact').createCompact({
   srcPath: __dirname + '/public/js/src/',
   destPath: __dirname + '/public/js/compact/',
   webPath: '/js/compact/',
-  debug: true
+  debug: false
 });
 
 compact.addNamespace('global')
@@ -47,14 +47,22 @@ compact.addNamespace('index')
   .addJs('/remot.io.receiver.socket.js')
   .addJs('/remot.io.receiver.events.js');
 
+compact.addNamespace('bookmarklet')
+  .addJs('/libs/socket.io.js')
+  .addJs('/libs/zepto.min.js')
+  .addJs('/remot.io.js')
+  .addJs('/remot.io.storage.js')
+  .addJs('/remot.io.receiver.socket.js')
+  .addJs('/remot.io.receiver.events.js');
 
 app.use(compact.js(['global']));
 
 app.get('/:id/c', compact.js(['global','controller']));
+app.get('/js/compact/bookmarklet.js', compact.js(['bookmarklet']));
 app.get('/', compact.js(['global','index']));
 
 
-// Configuration
+// expressjs configuration
 app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('view engine', 'ejs');
