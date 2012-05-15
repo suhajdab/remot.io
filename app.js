@@ -44,7 +44,8 @@ compact.addNamespace('index')
   .addJs('/libs/Math.uuid.js')
   .addJs('/libs/qrcode.js')
   .addJs('/libs/html5-qrcode.js')
-  .addJs('/remot.io.receiver.js');
+  .addJs('/remot.io.receiver.socket.js')
+  .addJs('/remot.io.receiver.events.js');
 
 
 app.use(compact.js(['global']));
@@ -83,6 +84,25 @@ app.listen(80);
 
 /*  socket.io  */
 io = require('socket.io').listen(app);
+
+var controller = io
+  .of( '/controller' )
+  .on( 'connection', function ( socket ) {
+    socket.on('control', function (data) {
+      receiver.emit('control', data );
+      console.log(data);
+  });
+});
+var receiver = io
+  .of( '/receiver' ).on( 'connection', function ( socket ) {
+    console.log(socket);
+  });
+  // .on( 'connection', function ( socket ) {
+  //   socket.on('control', function (data) {
+  //   socket.broadcast.emit('control', data );
+  //   console.log(data)
+  // });
+/*
 io.sockets.on('connection', function (socket) {
   socket.on('control', function (data) {
     socket.broadcast.emit('control', data );
@@ -90,4 +110,4 @@ io.sockets.on('connection', function (socket) {
   });
   var address = socket.handshake.address;
   console.log("New connection from " + address.address + ":" + address.port);
-});
+});*/

@@ -56,17 +56,7 @@
 
 
   <!-- JavaScript at the bottom for fast page loading -->
-
-  <script src="/js/libs/zepto.min.js"></script>
-  <script src="/js/libs/socket.io.js"></script>
-
-  <!-- scripts concatenated and minified via ant build script -->
-  <script src="/js/remot.io.js"></script>
-  <script src="/js/remot.io.controller.js"></script>
-  <!-- end concatenated and minified scripts-->
-
-  <!-- debugger -->
-  <script src="http://onembp.local:8080/target/target-script-min.js#anonymous"></script>
+  <%- compactJsHtml() %>
 
   <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
        mathiasbynens.be/notes/async-analytics-snippet -->

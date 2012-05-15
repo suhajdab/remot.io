@@ -13,7 +13,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title><%- title %></title>
-	<meta name="description" content="">
+	<meta name="description" content="<%- descr %>">
 
 	<!-- Mobile viewport optimized: h5bp.com/viewport -->
 	<meta name="viewport" content="width=device-width">
@@ -22,12 +22,6 @@
 	
 	<link rel="stylesheet" href="/css/bootstrap.css">
 	<link rel="stylesheet" href="/css/remot.io.css">
-
-	<!-- All JavaScript at the bottom, except this Modernizr build.
-			 Modernizr enables HTML5 elements & feature detects for optimal performance.
-			 Create your own custom Modernizr build: www.modernizr.com/download/ 
-			 TODO: build seperate modernizrs for controller & receiver	-->
-	<script src="/js/libs/modernizr-2.5.3.min.js"></script>
 </head>
 <body>
 	<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.
@@ -53,10 +47,10 @@
 			</ul>
 			<ul class="quick-links">
 				<li>
-					<iframe class="github-btn" src="http://markdotto.github.com/github-buttons/github-btn.html?user=twitter&repo=bootstrap&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="112px" height="20px"></iframe>
+					<iframe class="github-btn" src="http://markdotto.github.com/github-buttons/github-btn.html?user=suhajdab&repo=remot.io&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="112px" height="20px"></iframe>
 				</li>
 				<li>
-					<iframe class="github-btn" src="http://markdotto.github.com/github-buttons/github-btn.html?user=twitter&repo=bootstrap&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="98px" height="20px"></iframe>
+					<iframe class="github-btn" src="http://markdotto.github.com/github-buttons/github-btn.html?user=suhajdab&repo=remot.io&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="98px" height="20px"></iframe>
 				</li>
 				<li class="follow-btn">
 					<a href="https://twitter.com/twbootstrap" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="true">Follow @twbootstrap</a>
@@ -71,7 +65,30 @@
 	<hr class="soften">
 
 	<div role="main">
-		 <%- body %>
+		<!-- TODO: show big green ✔ next to completed steps -->
+		<!-- TODO: generate bookmarklet with unique id -->
+		 <h2>Step 1</h2>
+		 <p>
+		 	<!-- auto collapse this section when socket connection is up -->
+		 	Send this url : http://remot.io/f6sdh/c to your touch device and open it!
+		 	<a href="mailto:?subject=remot.io controller address&body=Open this address on your touch device to take control: http://remot.io/e5h67/c" data-tracking="">Sending an e-mail</a><a href="javascript" data-tracking="">scanning a qrcode</a>
+		 </p>
+		 
+
+		 <h2>Step 2</h2>
+		 <p>
+		 	<!-- auto collapse this section on swipe up, else display: "Swipe up, not down/left/right" -->
+		 	Test if this are working by swiping up
+		 </p>
+
+		 <h2>Step 3</h2>
+		 <p>
+		 	<!-- any way to test this?? Auto close section after drag -->
+		 	Drag this <a href="javascript:var remot = {id : 'e5h67'};(function() {var sc = document.createElement('SCRIPT');sc.type = 'text/javascript';sc.src = 'http://remot.io/js/compact/global-receiver.js';document.getElementsByTagName('head')[0].appendChild(sc);})();">bookmarklet</a> to your bookmarks
+		 </p>
+
+		 <!-- display when all steps are complete -->
+		 <h2>Ready!</h2>
 	</div>
 	<footer>
 
@@ -81,14 +98,8 @@
 	<!-- JavaScript at the bottom for fast page loading -->
 
 	<!-- scripts concatenated and minified via build script -->
-	<script src="/js/plugins.js"></script>
-	<script src="/js/libs/socket.io.js"></script>
-	<script src="/js/remot.io.js"></script>
-
-	<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.7.2.min.js"><\/script>')</script>
-	<script src="/js/remot.io.receiver.js"></script>	
+	<%- compactJsHtml() %>
+	
 	
 	<!-- end scripts -->
 

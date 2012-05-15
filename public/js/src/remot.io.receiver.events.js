@@ -6,52 +6,73 @@
  * TODO: config profiles as [element selector,eventtype,swipe-up,swipe-down,swipe-left,swipe-right,zoomin,zoomout]
  * TODO: allow configuration by key press in input field
  * TODO: copy config as JSON string from input
- * TODO: configure by pasting hash JSON string with to url -> save config to localstorage -> remove from hash -> display notification (ex: config save in connection to current url)
+ * TODO: configure by pasting hash JSON string to url -> save config to localstorage -> remove from hash -> display notification (ex: config saved for http://current.url)
  * TODO: detect hashchange and restore previous hash if config detected
  * TODO: **** BOOKMARKLET! ****
  * TODO: timeout if no controller after 30s
- * TODO: use shorter event types for transport
+ * TODO: use shorter event types for transport ( swipeLeft => sl )
  * TODO: replace Zepto with purpose coded js
  * TODO: ender.node.de for javascript framework optimisation
  * TODO: only load qrcode bits when needed	
  */
 
-(function($){
-	var rio = window.remot.io;
-
+( function ( $ ) {
+	'use strict'
+	
 	var config;
 
-	init = function () {
-		if (!io) throw ( 'socketio not found' );
-		rio.socket = io.connect( '//' + location.host + '/receiver' );
+	function init () {
 		//	detect presentation framework to select config profile
 		config = defaults.config;
 		attachListener();
 	};
 
 	function attachListener() {
-		rio.socket.on( 'control', onControl );
+		remot.io.socket.on( 'connect', onConnect );
+		remot.io.socket.on( 'control', onControl );
+		remot.io.socket.on( 'status', onStatus );
 	}
 
-	function onControl ( d ) {
-		var e = $.Event( config[ 1 ] );
-		switch( d.type ) {
+	function onControl ( e ) {
+		trigger( e.type );
+		controlFeedback( e.type );
+	}
+
+	function onConnect ( e ) {
+		statusFeedback( 'connected' );
+	}
+
+	function onStatus ( e ) {
+		statusFeedback( e.status );
+	}
+
+	function statusFeedback ( type ) {
+		document.body.dataset.eventType = type;
+	}
+
+	function controlFeedback( status ) {
+		document.body.dataset.status = status;
+	}
+
+	function trigger ( type ) {
+		var ev = $.Event( config[ 1 ] );
+		switch( type ) {
 			case 'swipeUp':
-				e.which = keyCodes[config[2]];
+				ev.which = keyCodes[config[2]];
 				break;
 			case 'swipeDown':
-				e.which = keyCodes[config[3]];
+				ev.which = keyCodes[config[3]];
 				break;
 			case 'swipeLeft':
-				e.which = keyCodes[config[4]];
+				ev.which = keyCodes[config[4]];
 				break;
 			case 'swipeRight':
-				e.which = keyCodes[config[5]];
+				ev.which = keyCodes[config[5]];
 				break;
 		}
 
-		$( config[ 0 ] ).trigger( e );
-		console.log( e );
+		$( config[ 0 ] ).trigger( ev );
+		console.log( ev );
 	}
 
 	var defaults = {
@@ -72,7 +93,7 @@
 
 	init();
 
-})( Zepto);
+})( Zepto );
 
 var profiles = {
 

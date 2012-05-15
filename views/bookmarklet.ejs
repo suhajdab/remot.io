@@ -1,1 +1,15 @@
-var remot.io.id = <%- id %>;
+/** 
+ * TODO: remove Zepto depencency
+ * TODO: check for Zepto/socket.io before loading
+ * TODO: Zepto compatibility mode? In case loaded into page with jQuery
+ */
+javascript: 
+var remot = {
+	id : '<%- id %>';
+}
+(function() {
+	var sc = document.createElement('SCRIPT');
+	sc.type = 'text/javascript';
+	sc.src = 'http://remot.io/js/compact/global-receiver.js';
+	document.getElementsByTagName('head')[0].appendChild(sc);
+})();
