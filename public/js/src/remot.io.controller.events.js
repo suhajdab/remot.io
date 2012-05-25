@@ -21,8 +21,8 @@
 			.on( 'touchmove', 	onTouchMove );
 
 		//	socket connection events
-		remot.io.socket.on( 'connect', onConnect );
-		remot.io.socket.on( 'status', onStatus );
+		remot.io.socket.on( 'connect', 	onConnect );
+		remot.io.socket.on( 'status', 	onStatus );
 	}
 
 	function onSwipe ( e ) {
@@ -35,7 +35,8 @@
 	}
 
 	function onConnect ( e ) {
-		statusFeedback( 'connected' );
+		sendUid();
+		statusFeedback( 'unlinked' );
 	}
 
 	function onStatus ( e ) {
@@ -52,6 +53,11 @@
 
 	function statusFeedback( status ) {
 		document.body.dataset.status = status;
+	}
+
+	function sendUid() {
+		console.log( remot.io );
+		remot.io.socket.emit( 'uid', { uid: remot.io.uid });
 	}
 
 	attachListeners();

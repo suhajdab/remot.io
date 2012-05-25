@@ -1,107 +1,119 @@
 <!doctype html>
-<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<html class="no-js" lang="en">
 <head>
 	<meta charset="utf-8">
-
-	<!-- Use the .htaccess and remove these lines to avoid edge case issues.
-			 More info: h5bp.com/i/378 -->
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title><%- title %></title>
 	<meta name="description" content="<%- descr %>">
 
+	<!-- Information that Facebook displays when users share site. -->
+	<meta property="og:title" content="" />
+	<meta property="og:description" content="" />
+	<meta property="og:image" content="" />
+
 	<!-- Mobile viewport optimized: h5bp.com/viewport -->
 	<meta name="viewport" content="width=device-width">
 
-	<!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
-	
 	<link rel="stylesheet" href="/css/bootstrap.css">
+	<link rel="stylesheet" href="/css/bootstrap-responsive.css">
+	<link rel="stylesheet" href="/css/docs.css">
 	<link rel="stylesheet" href="/css/remot.io.css">
+	<link rel="stylesheet" href="/css/remot.io.default.css">
+	<link rel="stylesheet" href="/css/remot.io.status.css">
 </head>
 <body>
-	<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.
-			 chromium.org/developers/how-tos/chrome-frame-getting-started -->
-	<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
-	<header class="jumbotron masthead">
-		<div class="inner">
-			<h1>remot.io</h1>
-			<p>Simple and flexible remote for your html presentation</p>
-			<p class="download-info">
-				<a href="https://github.com/twitter/bootstrap/" class="btn btn-primary btn-large">View project on GitHub</a>
-				<a href="assets/bootstrap.zip" class="btn btn-large">Download Bootstrap <small>(v2.0.3)</small></a>
-			</p>
+
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<h1>remot.io</h1>
+				<div class="status"></div>
+			</div>
+  	</div>
+  </div>
+
+	<div class="container">
+		<header class="jumbotron masthead">
+			<div class="inner">
+				<p >Simple and flexible remote for your html presentations</p>
+			</div>
+		</header>
+
+		<hr class="soften">
+
+		<div role="main">
+			<!-- TODO: add default text to tweet link -->
+			<!-- TODO: update humans.txt, readme.md, robots.txt -->
+			<!-- TODO: Facebook meta -->
+			<!-- TODO: add html5 badge: http://www.w3.org/html/logo/#badge-builder -->
+			
+			<!-- STEP 1 -->
+			<section>
+				<h2>Step 1</h2>
+				<article>
+				 	<!-- auto collapse this section when socket connection is up -->
+				 	<p>Open this url : <input type="text" value="http://<%- host %>/<%- uid %>/c" readOnly="true" /> to your touch device!</p>
+				 	<div class="btn-group">
+						<a class="btn btn-primary" href="mailto:?subject=remot.io controller address&body=Open this address on your touch device to take control: http://<%- host %>/<%- uid %>/c" data-tracking="">Send via e-mail</a>
+						<a class="btn btn-primary js-qrcode" href="http://<%- host %>/<%- uid %>/c" data-tracking="">Scan QRCode</a>
+					</div>
+					<details>First you need to open the controller page, which will send an event every time you swipe on your touch device to the browser running the presentation.</details>
+				</article>
+			</section>
+
+			<!-- STEP 2 -->
+			<section>
+				<h2>Step 2</h2>
+				<article>
+					<!-- auto collapse this section on swipe up, else display: "Swipe up, not down/left/right" -->
+					<p>Test it by swiping down!</p>
+					<details>Your device appears to be connected to the server! Yey! This is indicated by the little circle ( pretending to be an LED ) that just turned from orange to green.</details>
+					<span id="test-swipe-result">The other down! :)</span>
+				</article>
+			</section>
+
+			<!-- STEP 3 -->
+			<section>
+				<h2>Step 3</h2>
+				<article>
+					<!-- any way to test this?? Auto close section after drag -->
+					<p>Drag this 
+						<a href="javascript:var remot={io:{uid:'<%- uid %>'}};(function(){var sc=document.createElement('SCRIPT');sc.type='text/javascript';sc.src='http://<%- host %>/js/compact/global-receiver.js';document.getElementsByTagName('head')[0].appendChild(sc);})();">bookmarklet</a> 
+						to your bookmarks.</p>
+						<details>By dragging the bookmarklet to your browser you can control any page the listens for key presses. Your swipes, on your touch device, translate to pressing one of the four arrow keys on the page where you activated the bookmarklet. Visit the awesome <a href="http://bartaz.github.com/impress.js/">impress.js</a> site for example and start swiping!</details>
+				</article>
+			</section>
+
+			<!-- display when all steps are complete -->
+			<h2>Ready!</h2>
 		</div>
 
-		<div class="bs-links">
-			<ul class="quick-links">
-				<li><a href="./upgrading.html">Upgrading from 1.4</a></li>
-				<li><a href="https://github.com/twitter/bootstrap/zipball/master">Download with docs</a></li>
-				<li><a href="http://blog.getbootstrap.com">Read the blog</a></li>
-				<li><a href="https://github.com/twitter/bootstrap/issues?state=open">Submit issues</a></li>
-				<li><a href="https://github.com/twitter/bootstrap/wiki">Roadmap and changelog</a></li>
-			</ul>
-			<ul class="quick-links">
-				<li>
-					<iframe class="github-btn" src="http://markdotto.github.com/github-buttons/github-btn.html?user=suhajdab&repo=remot.io&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="112px" height="20px"></iframe>
-				</li>
-				<li>
-					<iframe class="github-btn" src="http://markdotto.github.com/github-buttons/github-btn.html?user=suhajdab&repo=remot.io&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="98px" height="20px"></iframe>
-				</li>
-				<li class="follow-btn">
-					<a href="https://twitter.com/twbootstrap" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="true">Follow @twbootstrap</a>
-				</li>
-				<li class="tweet-btn">
-					<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://twitter.github.com/bootstrap/" data-count="horizontal" data-via="twbootstrap" data-related="mdo:Creator of Twitter Bootstrap">Tweet</a>
-				</li>
-			</ul>
-		</div>
-	</header>
-
-	<hr class="soften">
-
-	<div role="main">
-		<!-- TODO: show big green ✔ next to completed steps -->
-		<!-- TODO: generate bookmarklet with unique id -->
-		 <h2>Step 1</h2>
-		 <p>
-		 	<!-- auto collapse this section when socket connection is up -->
-		 	Send this url : http://remot.io/f6sdh/c to your touch device and open it!
-		 	<a href="mailto:?subject=remot.io controller address&body=Open this address on your touch device to take control: http://remot.io/e5h67/c" data-tracking="">Sending an e-mail</a><a href="javascript" data-tracking="">scanning a qrcode</a>
-		 </p>
-		 
-
-		 <h2>Step 2</h2>
-		 <p>
-		 	<!-- auto collapse this section on swipe up, else display: "Swipe up, not down/left/right" -->
-		 	Test if this are working by swiping up
-		 </p>
-
-		 <h2>Step 3</h2>
-		 <p>
-		 	<!-- any way to test this?? Auto close section after drag -->
-		 	Drag this <a href="javascript:var remot = {id : 'e5h67'};(function() {var sc = document.createElement('SCRIPT');sc.type = 'text/javascript';sc.src = 'http://remot.io/js/compact/global-receiver.js';document.getElementsByTagName('head')[0].appendChild(sc);})();">bookmarklet</a> to your bookmarks
-		 </p>
-
-		 <!-- display when all steps are complete -->
-		 <h2>Ready!</h2>
+		<footer>
+			<div class="bs-links">
+				<ul class="quick-links">
+					<li>
+						<iframe class="github-btn" src="http://markdotto.github.com/github-buttons/github-btn.html?user=suhajdab&repo=remot.io&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="112px" height="20px"></iframe>
+					</li>
+					<li>
+						<iframe class="github-btn" src="http://markdotto.github.com/github-buttons/github-btn.html?user=suhajdab&repo=remot.io&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="98px" height="20px"></iframe>
+					</li>
+					<li class="follow-btn">
+						<a href="https://twitter.com/remot_io" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="true">Follow @remot_io</a>
+					</li>
+					<li class="tweet-btn">
+						<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://suhajdab.github.com/remot.io/" data-count="horizontal" data-via="remot_io" data-related="mdo:Creator of remot.io">Tweet</a>
+					</li>
+				</ul>
+			</div>
+		</footer>
 	</div>
-	<footer>
-
-	</footer>
 
 
-	<!-- JavaScript at the bottom for fast page loading -->
-
-	<!-- scripts concatenated and minified via build script -->
+	<script>var remot = remot || { io: { uid: '<%- uid %>' } };</script>
 	<%- compactJsHtml() %>
 	
-	
-	<!-- end scripts -->
+	<!-- // <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script> -->
 
 	<!-- Asynchronous Google Analytics snippet. mathiasbynens.be/notes/async-analytics-snippet -->
 	<script>

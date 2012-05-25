@@ -1,1 +1,1 @@
-var remot = { io: {} };
+var remot = remot || { io: {} };

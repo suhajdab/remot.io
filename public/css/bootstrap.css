@@ -808,9 +808,6 @@ input[type="radio"] {
   height: auto;
   padding: 0;
   margin: 3px 0;
-  *margin-top: 0;
-  /* IE7 */
-
   line-height: normal;
   cursor: pointer;
   background-color: transparent;
@@ -848,11 +845,6 @@ input[type="submit"] {
 select,
 input[type="file"] {
   height: 28px;
-  /* In IE7, the height of the select element cannot be changed by height, only font-size */
-
-  *margin-top: 4px;
-  /* For IE7, add top margin to align select with labels */
-
   line-height: 28px;
 }
 
@@ -3557,6 +3549,7 @@ input[type="submit"].btn.btn-mini {
 }
 
 .navbar-inner {
+  position: relative;
   min-height: 40px;
   padding-right: 20px;
   padding-left: 20px;

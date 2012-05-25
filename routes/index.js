@@ -8,11 +8,13 @@ var descr = 'remot.io - a free, simple remote for your html presentations',
 	googleUA = 'UA-207925-20';
 
 exports.index = function(req, res){
-	//console.log(req);
+	console.log(req);
 	res.render( 'index', {
 		layout: 'default-layout',
 		title: title, 
-		descr: descr
+		descr: descr,
+		uid: Math.uuid( 5 ),
+		host: req.headers.host
 	});
 };
 
@@ -21,13 +23,14 @@ exports.controller = function(req, res){
 	res.render( 'controller', { 
 		layout: 'controller-layout',
 		title: 'remot.io',
-		descr: descr
+		descr: descr,
+		uid: req.params.uid
 	})
 };
 
 exports.bookmarklet = function(req, res){
 	res.render('bookmarklet', { 
-		id: req.params.id,
+		uid: req.params.uid,
 		layout: false
 	});
 };

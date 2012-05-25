@@ -1,20 +1,8 @@
-/**
- * TODO: allow simple config on client side
- * TODO: save config to location.hash
- * TODO: fire keyup or keydown on 'left arrow', 'k' and 'a' for swipe right... etc ( customizable )
- * TODO: allow user to switch between locally saved 'profiles'
- * TODO: config profiles as [element selector,eventtype,swipe-up,swipe-down,swipe-left,swipe-right,zoomin,zoomout]
- * TODO: allow configuration by key press in input field
- * TODO: copy config as JSON string from input
- * TODO: configure by pasting hash JSON string to url -> save config to localstorage -> remove from hash -> display notification (ex: config saved for http://current.url)
- * TODO: detect hashchange and restore previous hash if config detected
- * TODO: **** BOOKMARKLET! ****
- * TODO: timeout if no controller after 30s
- * TODO: use shorter event types for transport ( swipeLeft => sl )
- * TODO: replace Zepto with purpose coded js
- * TODO: ender.node.de for javascript framework optimisation
- * TODO: only load qrcode bits when needed	
- */
+/*
+	TODO: place configs & keyCodes is seperate module
+	TODO: config by object, instead of array & use extend to merge custom with defaults
+*/
+
 
 ( function ( $ ) {
 	'use strict'
@@ -30,7 +18,6 @@
 	function attachListener() {
 		remot.io.socket.on( 'connect', onConnect );
 		remot.io.socket.on( 'control', onControl );
-		remot.io.socket.on( 'status', onStatus );
 	}
 
 	function onControl ( e ) {
@@ -39,19 +26,15 @@
 	}
 
 	function onConnect ( e ) {
-		statusFeedback( 'connected' );
+		sendUid();
 	}
 
-	function onStatus ( e ) {
-		statusFeedback( e.status );
-	}
-
-	function statusFeedback ( type ) {
+	function controlFeedback( type ) {
 		document.body.dataset.eventType = type;
 	}
 
-	function controlFeedback( status ) {
-		document.body.dataset.status = status;
+	function sendUid() {
+		remot.io.socket.emit( 'uid', { uid: remot.io.uid });
 	}
 
 	function trigger ( type ) {

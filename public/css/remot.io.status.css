@@ -1,0 +1,28 @@
+/** 
+ * Status indicator - giving feedback on connection status via data-status on body
+ * undefined 	= red 		= no connection to server
+ * "unlinked"	= orange	= connected to server, but not linked to a controller
+ * "linked"		= green		= connected to server & linked to controller
+ */
+
+/*	TODO: add discrete blink when switching status */
+
+.status {
+	content: '';
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	background-color: #d00;
+	background-image: -webkit-radial-gradient(25% 25%, circle cover, rgba(255,255,255,0.3), rgba(255,255,255,0) 33%);
+	border-radius: 8px;
+	box-shadow: 0 0px 2px rgba(0,0,0,0.4);
+}
+
+/*	indicator states	*/
+body[data-status="unlinked"] .status {
+	background-color: #f90;
+}
+
+body[data-status="linked"] .status {
+	background-color: #0a0;
+}

@@ -2,70 +2,55 @@
 <html class="no-js" lang="en">
 
 <head>
-  <meta charset="utf-8">
+	<meta charset="utf-8">
 
-  <title><%- title %></title>
-  <meta name="description" content="<%- descr %>">
+	<title><%- title %></title>
+	<meta name="description" content="<%- descr %>">
 
-  <!-- Mobile viewport optimization h5bp.com/ad -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width">
+	<!-- Mobile viewport optimization h5bp.com/ad -->
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta name="viewport" content="width=device-width">
 
-  <!-- Home screen icon  Mathias Bynens mathiasbynens.be/notes/touch-icons --> 
-  <!-- For third generation iPad Retina Display -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png" />
-  <!-- For iPhone 4 with high-resolution Retina display: -->
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png" />
-  <!-- For first-generation iPad: -->
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png" />
-  <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
-  <link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png" />
-  <!-- For nokia devices: -->
-  <link rel="shortcut icon" href="img/touch/apple-touch-icon.png" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-  <!-- iOS web app, delete if not needed. https://github.com/h5bp/mobile-boilerplate/issues/94 -->
-  <!-- <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black"> -->
-  <!-- <script>(function(){var p,l,r=window.devicePixelRatio;if(navigator.platform==="iPad"){p=r===2?"img/startup/startup-tablet-portrait-retina.png":"img/startup/startup-tablet-portrait.png";l=r===2?"img/startup/startup-tablet-landscape-retina.png":"img/startup/startup-tablet-landscape.png";document.write('<link rel="apple-touch-startup-image" href="'+l+'" media="screen and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="'+p+'" media="screen and (orientation: portrait)"/>');}else{p=r===2?"img/startup/startup-retina.png":"img/startup/startup.png";document.write('<link rel="apple-touch-startup-image" href="'+p+'"/>');}})()</script> -->
+	<!-- Main Stylesheet -->
+	<link rel="stylesheet" href="/css/h5mbp.css">
+	<link rel="stylesheet" href="/css/remot.io.css">
+	<link rel="stylesheet" href="/css/remot.io.controller.css">
+	<link rel="stylesheet" href="/css/remot.io.status.css">
 
-  <!-- more tags for your 'head' to consider h5bp.com/d/head-Tips -->
-
-  <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="/css/h5mbp.css">
-  <link rel="stylesheet" href="/css/remot.io.css">
-
-  <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
-  <!-- // <script src="js/libs/modernizr-2.0.6.min.js"></script> -->
+	<!-- <script src="js/libs/modernizr-2.0.6.min.js"></script> -->
 </head>
 
 <body>
 
-  <div id="container">
-    <header>
-      <h1>remot.io</h1>
-    </header>
-    <div id="main" role="main">
+	<div id="container">
+		<header>
+			<h1>remot.io</h1>
+			<div class="status"></div>
+		</header>
+		<div id="main" role="main">
+			<!-- TODO: create appCache to download from server only when something changed -->
+			<!-- TODO: create update notification for appCache -->
+			<!-- TODO: write a simple guide here about usage, status indicator -->
+			<div id="you-cant-touch">Sorry, but is seems you device doesn't support touch events and the remot.io controller currently requires that!</div>
+		</div>
+	</div> <!--! end of #container -->
 
-    </div>
 
-    <footer>
+	<!-- JavaScript at the bottom for fast page loading -->
+	<script>var remot = remot || { io: { uid: '<%- uid %>' } };</script>
+	<%- compactJsHtml() %>
 
-    </footer>
-  </div> <!--! end of #container -->
-
-
-  <!-- JavaScript at the bottom for fast page loading -->
-  <%- compactJsHtml() %>
-
-  <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
-       mathiasbynens.be/notes/async-analytics-snippet -->
-  <script>
-    var _gaq=[["_setAccount","<%- googleUA %>"],["_trackPageview"]];
-    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
-    g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
-    s.parentNode.insertBefore(g,s)}(document,"script"));
-  </script>
+	<!-- Asynchronous Google Analytics snippet -->
+	<script>
+		var _gaq=[["_setAccount","<%- googleUA %>"],["_trackPageview"]];
+		(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+		g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
+		s.parentNode.insertBefore(g,s)}(document,"script"));
+	</script>
 
 </body>
 </html>

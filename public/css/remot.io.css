@@ -2,7 +2,7 @@
  *	Colors:
  *		Pantone Cool Gray 8 C 	rgb(161,161,164) #A1A1A4
  *	 	Pantone Cool Gray 3 C 	rgb(216,217,218) #D8D9DA
- *	  	Pantone 583 C 			rgb(193,216,47)  #C1D82F
+ *	  Pantone 583 C 					rgb(193,216,47)  #C1D82F
  */
 
 html, body {
@@ -10,10 +10,15 @@ html, body {
 	height: 100%;
 }
 
+body {
+	background-color: #eee;
+}
+
 h1 {
 	margin: 0;
 	padding: 12px 24px;
-	background-color: #222;
 	color: rgba(193,216,47,0.9);
+	font-size: 36px;
+	font-weight: normal;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, .1), 0 0 30px rgba(255, 255, 255, .125);
 }

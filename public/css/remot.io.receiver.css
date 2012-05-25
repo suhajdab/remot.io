@@ -1,0 +1,11 @@
+#remot-io-ui {
+	position: fixed;
+	top: 0;
+	left: 50%;
+	width: 200px;
+	margin-left: -100px;
+}
+
+#remot-io-ui.show {
+	
+}

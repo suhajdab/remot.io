@@ -10,8 +10,7 @@
 
 // Generates a QRCode of text provided.
 // First QRCode is rendered to a canvas.
-// The canvas is then turned to an image PNG
-// before being returned as an <img> tag.
+// The canvas is then turned to a dataurl
 function showQRCode(text) {
 
   
@@ -55,10 +54,10 @@ function showQRCode(text) {
  		}
  	}
 
- 	var imgElement = document.createElement("img");
- 	imgElement.src = canvas.toDataURL("image/png");
+ 	//var imgElement = document.createElement("img");
+ 	//imgElement.src = canvas.toDataURL("image/png");
 
- 	return imgElement;
+ 	return canvas.toDataURL("image/png");;
     
 }
 
