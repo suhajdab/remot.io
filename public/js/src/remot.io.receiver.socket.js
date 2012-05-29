@@ -1,3 +1,7 @@
+/**
+ * TODO: set host to remot.io
+ */
+
 (function(){
 	'use strict'
 

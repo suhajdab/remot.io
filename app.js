@@ -9,6 +9,7 @@
  * TODO: verify uid correctness
  * TODO: css join & minify
  * TODO: add status indicator to bookmarklet
+ * TODO: multiple receivers, single controller ?
  * TODO: 404
  */
 
