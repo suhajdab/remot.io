@@ -9,6 +9,7 @@
  * TODO: verify uid correctness
  * TODO: css join & minify
  * TODO: add status indicator to bookmarklet
+ * TODO: 404
  */
 
 
@@ -33,8 +34,8 @@ var compact = require('compact').createCompact({
 compact.addNamespace('global')
 	.addJs('/libs/socket.io.js')
 	.addJs('/libs/zepto.js')
-	.addJs('/remot.io.js')
-	.addJs('/remot.io.storage.js')
+	.addJs('/remot.io.js');
+	//.addJs('/remot.io.storage.js')
 
 compact.addNamespace('controller')
 	.addJs('/remot.io.controller.socket.js')
@@ -55,7 +56,7 @@ compact.addNamespace('bookmarklet')
 	.addJs('/libs/socket.io.js')
 	.addJs('/libs/zepto.js')
 	.addJs('/remot.io.js')
-	.addJs('/remot.io.storage.js')
+	//.addJs('/remot.io.storage.js')
 	.addJs('/remot.io.receiver.socket.js')
 	.addJs('/remot.io.receiver.events.js');
 
