@@ -1,6 +1,7 @@
-/*
+/**
 	TODO: place configs & keyCodes is seperate module
 	TODO: config by object, instead of array & use extend to merge custom with defaults
+	TODO: robost cross browser keyup/keydown triggering
 */
 
 
@@ -38,28 +39,43 @@
 	}
 
 	function trigger ( type ) {
-		var ev = $.Event( config[ 1 ] );
+		var ev, keyCode;
 		switch( type ) {
 			case 'swipeUp':
-				ev.which = keyCodes[config[2]];
+				keyCode = keyCodes[config[2]];
 				break;
 			case 'swipeDown':
-				ev.which = keyCodes[config[3]];
+				keyCode = keyCodes[config[3]];
 				break;
 			case 'swipeLeft':
-				ev.which = keyCodes[config[4]];
+				keyCode = keyCodes[config[4]];
 				break;
 			case 'swipeRight':
-				ev.which = keyCodes[config[5]];
+				keyCode = keyCodes[config[5]];
 				break;
 		}
 
-		$( config[ 0 ] ).trigger( ev );
-		console.log( ev );
+
+		ev = document.createEvent( 'KeyboardEvent' );
+		Object.defineProperty( ev, 'keyCode', {
+			get: function(){
+				return this.keyCodeVal;
+			}
+		});
+		Object.defineProperty( ev, 'which', {
+			get: function(){
+				return this.keyCodeVal;
+			}
+		});
+		ev.initKeyboardEvent( config[ 1 ], true, false, null, 0, false, 0, false, keyCode, 0 );
+		ev.keyCodeVal = keyCode;
+		document.dispatchEvent( ev );
+
+		console.log( e );
 	}
 
 	var defaults = {
-		config: ['document','keydown','up','down','left','right','return','esc']
+		config: ['document','keyup','down','up','right','left','return','esc']
 	}
 
 	var keyCodes = {
@@ -98,7 +114,7 @@ document.addEventListener("keyup", function ( event ) {
                     case 39: // right
                     case 40: // down
 
-firing keyboard events
+firing keyboard events without Zepto
 $.each([85,83,69,32,83,84,82,73,67,84],function(i,keyCode){
   e=document.createEvent("KeyboardEvent");
   e.initKeyEvent("keydown",true,true,window,false,false,false,false,keyCode,0);
@@ -106,4 +122,3 @@ $.each([85,83,69,32,83,84,82,73,67,84],function(i,keyCode){
   document.dispatchEvent(e);
 });
 
-*/
