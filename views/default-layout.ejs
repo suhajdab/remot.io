@@ -1,15 +1,16 @@
 <!doctype html>
-<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
 <html class="no-js" lang="en">
 <head>
 	<meta charset="utf-8">
 
-	<title><%- title %></title>
+	<title><%- title %> ∴ <%- descr %></title>
 	<meta name="description" content="<%- descr %>">
 
-	<!-- Information that Facebook displays when users share site. -->
+	<!-- Facebook Open Graph tags to describe the entity the page represents -->
 	<meta property="og:title" content="<%- title %>" />
 	<meta property="og:description" content="<%- descr %>" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="http://remot.io" />
 	<meta property="og:image" content="apple-touch-icon-144.png" />
 
 	<!-- Mobile viewport optimized: h5bp.com/viewport -->
@@ -36,7 +37,7 @@
 	<div class="container">
 		<header class="jumbotron masthead">
 			<div class="inner">
-				<p >Simple and flexible remote for your html presentations</p>
+				<p ><%- descr %></p>
 			</div>
 		</header>
 
@@ -53,7 +54,7 @@
 				<h2>Step 1</h2>
 				<article>
 				 	<!-- auto collapse this section when socket connection is up -->
-				 	<p>Open this url : <input type="text" value="http://<%- host %>/<%- uid %>/c" readOnly="true" /> to your touch device!</p>
+				 	<p>Open this url: <input type="text" value="http://<%- host %>/<%- uid %>/c" readOnly="true" /> to your touch device!</p>
 				 	<div class="btn-group">
 						<a class="btn btn-primary" href="mailto:?subject=remot.io controller address&body=Open this address on your touch device to take control: http://<%- host %>/<%- uid %>/c" data-tracking="shareBy:email">Send via e-mail</a>
 						<a class="btn btn-primary js-qrcode" href="http://<%- host %>/<%- uid %>/c" data-tracking="shareBy:qrcode">Scan QRCode</a>
@@ -67,7 +68,7 @@
 				<h2>Step 2</h2>
 				<article>
 					<!-- auto collapse this section on swipe up, else display: "Swipe up, not down/left/right" -->
-					<p>Test it by swiping down!</p>
+					<p>Test the connection on your touch device by swiping down!</p>
 					<details>Your device appears to be connected to the server! Yey! This is indicated by the little circle ( pretending to be an LED in the upper right corner ) that just turned from orange to green.</details>
 					<span id="test-swipe-result">The other down! :)</span>
 				</article>
@@ -111,16 +112,7 @@
 						<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://suhajdab.github.com/remot.io/" data-count="horizontal" data-via="remot_io" data-related="mdo:Creator of remot.io">Tweet</a>
 					</li>
 					<li>
-						<div id="fb-root"></div>
-						<script>
-							(function(d, s, id) {
-								var js, fjs = d.getElementsByTagName(s)[0];
-								if (d.getElementById(id)) return;
-								js = d.createElement(s); js.id = id;
-								js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=401600956535869";
-								fjs.parentNode.insertBefore(js, fjs);
-							}(document, 'script', 'facebook-jssdk'));
-						</script>
+						<div class="fb-like" data-href="http://remot.io" data-send="true" data-width="285" data-show-faces="false"></div>
 					</li>
 				</ul>
 			</div>
@@ -132,6 +124,15 @@
 	<%- compactJsHtml() %>
 	
 	<!-- // <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script> -->
+
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=366577703404631";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
 
 	<!-- Asynchronous Google Analytics snippet. mathiasbynens.be/notes/async-analytics-snippet -->
 	<script>

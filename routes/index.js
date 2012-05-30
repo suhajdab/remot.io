@@ -3,7 +3,7 @@
  * GET home page.
  */
 
-var descr = 'remot.io - a free, simple remote for your html presentations',
+var descr = 'a simple, flexible remote for your html presentations',
 	title = 'remot.io'
 	googleUA = 'UA-207925-20';
 
