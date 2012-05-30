@@ -49,6 +49,7 @@ section {
 	margin-bottom: 12px;
 	padding: 24px 36px;
 	background-color: #fff;
+	border-radius: 5px;
 	box-shadow: 
 		0 5px 10px -2px rgba(0, 0, 0, 0.5),
 		0 1px 4px rgba(0, 0, 0, 0.5),
@@ -99,6 +100,13 @@ section p {
 
 section details {
 	margin: 10px 0;
+}
+
+section input {
+	width: 216px;
+	margin-bottom: 0;
+	font-family: monospace;
+	text-align: center;
 }
 
 #test-swipe-result,
