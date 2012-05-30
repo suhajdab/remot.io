@@ -55,8 +55,8 @@
 				 	<!-- auto collapse this section when socket connection is up -->
 				 	<p>Open this url : <input type="text" value="http://<%- host %>/<%- uid %>/c" readOnly="true" /> to your touch device!</p>
 				 	<div class="btn-group">
-						<a class="btn btn-primary" href="mailto:?subject=remot.io controller address&body=Open this address on your touch device to take control: http://<%- host %>/<%- uid %>/c" data-tracking="">Send via e-mail</a>
-						<a class="btn btn-primary js-qrcode" href="http://<%- host %>/<%- uid %>/c" data-tracking="">Scan QRCode</a>
+						<a class="btn btn-primary" href="mailto:?subject=remot.io controller address&body=Open this address on your touch device to take control: http://<%- host %>/<%- uid %>/c" data-tracking="shareBy:email">Send via e-mail</a>
+						<a class="btn btn-primary js-qrcode" href="http://<%- host %>/<%- uid %>/c" data-tracking="shareBy:qrcode">Scan QRCode</a>
 					</div>
 					<details>First you need to open the controller page, which will send an event every time you swipe on your touch device to the browser running the presentation.</details>
 				</article>
@@ -68,7 +68,7 @@
 				<article>
 					<!-- auto collapse this section on swipe up, else display: "Swipe up, not down/left/right" -->
 					<p>Test it by swiping down!</p>
-					<details>Your device appears to be connected to the server! Yey! This is indicated by the little circle ( pretending to be an LED ) that just turned from orange to green.</details>
+					<details>Your device appears to be connected to the server! Yey! This is indicated by the little circle ( pretending to be an LED in the upper right corner ) that just turned from orange to green.</details>
 					<span id="test-swipe-result">The other down! :)</span>
 				</article>
 			</section>
@@ -79,14 +79,20 @@
 				<article>
 					<!-- any way to test this?? Auto close section after drag -->
 					<p>Drag this 
-						<a href="javascript:var remot={io:{uid:'<%- uid %>'}};(function(){var sc=document.createElement('SCRIPT');sc.type='text/javascript';sc.src='http://<%- host %>/js/compact/global-receiver.js';document.getElementsByTagName('head')[0].appendChild(sc);})();">⚙ remot.io</a>
+						<a class="btn btn-primary" href="javascript:var remot={io:{uid:'<%- uid %>'}};(function(){var sc=document.createElement('SCRIPT');sc.type='text/javascript';sc.src='http://<%- host %>/js/compact/global-receiver.js';document.getElementsByTagName('head')[0].appendChild(sc);})();">⚙ remot.io</a>
 						bookmarklet to your bookmarks.</p>
-						<details>By dragging the bookmarklet to your browser you can control any page the listens for key presses. Your swipes, on your touch device, translate to pressing one of the four arrow keys on the page where you activated the bookmarklet. Visit the awesome <a href="http://bartaz.github.com/impress.js/">impress.js</a> site for example and start swiping!</details>
+						<details>By dragging the bookmarklet to your browser you can control any page the listens for key presses. Your swipes, on your touch device, translate to pressing one of the four arrow keys on the page where you activated the bookmarklet.</details>
 				</article>
 			</section>
 
 			<!-- display when all steps are complete -->
-			<h2>Ready!</h2>
+			<section class="no-box">
+				<h2>Ready!</h2>
+				<article>
+					You are ready to roll. Visit the awesome <a href="http://bartaz.github.com/impress.js/">impress.js</a> site for example and start swiping!
+					If the presentation framework you are using is not compatible with remot.io, let me know. We can probably fix that in no time!
+				</article>
+			</section>
 		</div>
 
 		<footer>
@@ -103,6 +109,18 @@
 					</li>
 					<li class="tweet-btn">
 						<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://suhajdab.github.com/remot.io/" data-count="horizontal" data-via="remot_io" data-related="mdo:Creator of remot.io">Tweet</a>
+					</li>
+					<li>
+						<div id="fb-root"></div>
+						<script>
+							(function(d, s, id) {
+								var js, fjs = d.getElementsByTagName(s)[0];
+								if (d.getElementById(id)) return;
+								js = d.createElement(s); js.id = id;
+								js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=401600956535869";
+								fjs.parentNode.insertBefore(js, fjs);
+							}(document, 'script', 'facebook-jssdk'));
+						</script>
 					</li>
 				</ul>
 			</div>
