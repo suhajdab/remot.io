@@ -86,6 +86,11 @@ section.done::after {
 	line-height: 100px;
 }
 
+section.no-box {
+	background: none;
+	box-shadow: none;
+}
+
 section p {
 	font-size: 120%;
 	line-height: 200%;
