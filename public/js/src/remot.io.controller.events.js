@@ -1,9 +1,8 @@
 /**
  * TODO[future]: capture all touch events & gestures and pass them to client debounced
- * TODO: interpret touch events ( swipe up/down/left/right )
  * TODO: keep id in local storage
- * TODO: status feedback: disconnected (red), connected without receiver (orange), connected to receiver (green)
  * TODO: handle zoom, pinch gestures
+ * TODO: error handling when not connected for long period
  */
 
 ( function ( $ ) {
