@@ -46,7 +46,6 @@
 		<div role="main">
 			<!-- TODO: add default text to tweet link -->
 			<!-- TODO: update humans.txt, readme.md, robots.txt -->
-			<!-- TODO: Facebook meta -->
 			<!-- TODO: add html5 badge: http://www.w3.org/html/logo/#badge-builder -->
 			
 			<!-- STEP 1 -->
@@ -54,12 +53,12 @@
 				<h2>Step 1</h2>
 				<article>
 				 	<!-- auto collapse this section when socket connection is up -->
-				 	<p>Open this url: <input type="text" value="http://<%- host %>/<%- uid %>/c" readOnly="true" /> to your touch device!</p>
+				 	<p>Open this url: <input type="text" value="http://<%- host %>/<%- uid %>/c" readOnly="true" /> on your touch device!</p>
 				 	<div class="btn-group">
 						<a class="btn btn-primary" href="mailto:?subject=remot.io controller address&body=Open this address on your touch device to take control: http://<%- host %>/<%- uid %>/c" data-tracking="shareBy:email">Send via e-mail</a>
 						<a class="btn btn-primary js-qrcode" href="http://<%- host %>/<%- uid %>/c" data-tracking="shareBy:qrcode">Scan QRCode</a>
 					</div>
-					<details>First you need to open the controller page, which will send an event every time you swipe on your touch device to the browser running the presentation.</details>
+					<details>First you need to open the controller page, which has the above address, on your touch device. You can type it's address, or use one of the buttons to either e-mail the link to yourself, or use a <a href="https://www.google.se/search?q=qrcode+scanning+apps">QRCode scanning app</a> to open it directly. This will send an event every time you swipe on your touch device to the browser running the presentation.</details>
 				</article>
 			</section>
 
@@ -99,7 +98,7 @@
 		<footer>
 			<div class="bs-links">
 				<ul class="quick-links">
-					<li>
+					<!-- <li>
 						<iframe class="github-btn" src="http://markdotto.github.com/github-buttons/github-btn.html?user=suhajdab&repo=remot.io&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="112px" height="20px"></iframe>
 					</li>
 					<li>
@@ -110,11 +109,14 @@
 					</li>
 					<li class="tweet-btn">
 						<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://suhajdab.github.com/remot.io/" data-count="horizontal" data-via="remot_io" data-related="mdo:Creator of remot.io">Tweet</a>
-					</li>
+					</li> -->
 					<li>
-						<div class="fb-like" data-href="http://remot.io" data-send="true" data-width="285" data-show-faces="false"></div>
+						<div class="fb-like" data-href="http://remot.io" data-send="true" data-width="450" data-show-faces="false"></div>
 					</li>
 				</ul>
+				<a href="http://www.w3.org/html/logo/">
+					<img src="http://www.w3.org/html/logo/badge/html5-badge-h-connectivity-css3-semantics.png" width="197" height="64" alt="HTML5 Powered with Connectivity / Realtime, CSS3 / Styling, and Semantics" title="HTML5 Powered with Connectivity / Realtime, CSS3 / Styling, and Semantics">
+				</a>
 			</div>
 		</footer>
 	</div>
