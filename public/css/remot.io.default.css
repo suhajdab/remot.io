@@ -109,6 +109,10 @@ section input {
 	text-align: center;
 }
 
+footer {
+	text-align: center;
+}
+
 #test-swipe-result,
 #test-swipe-result[data-type="swipeDown"] {
 	display: none;
