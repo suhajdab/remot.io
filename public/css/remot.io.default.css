@@ -113,6 +113,16 @@ footer {
 	text-align: center;
 }
 
+.btn-group {
+	text-align: center;
+	font-size: 0;
+}
+
+.btn-group .btn {
+	display: inline-block;
+	float: none;
+}
+
 #test-swipe-result,
 #test-swipe-result[data-type="swipeDown"] {
 	display: none;
