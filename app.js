@@ -29,7 +29,7 @@ var compact = require('compact').createCompact({
 	srcPath: __dirname + '/public/js/src/',
 	destPath: __dirname + '/public/js/compact/',
 	webPath: '/js/compact/',
-	debug: true
+	debug: false
 });
 
 compact.addNamespace('global')
