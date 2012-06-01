@@ -111,13 +111,21 @@
 						<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://suhajdab.github.com/remot.io/" data-count="horizontal" data-via="remot_io" data-related="mdo:Creator of remot.io">Tweet</a>
 					</li> -->
 					<li>
-						<div class="fb-like" data-href="http://remot.io" data-send="true" data-width="450" data-show-faces="false"></div>
+						<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fremot.io&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21&amp;appId=366577703404631" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:110px; height:21px;" allowTransparency="true"></iframe>
+					</li>
+					<li>
+						<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://remot.io" data-via="remot_io">Tweet</a>
+					</li>
+					<li>
+						<!-- Google +1 -->
+						<g:plusone size="medium"></g:plusone>
 					</li>
 				</ul>
-				<a href="http://www.w3.org/html/logo/">
-					<img src="http://www.w3.org/html/logo/badge/html5-badge-h-connectivity-css3-semantics.png" width="197" height="64" alt="HTML5 Powered with Connectivity / Realtime, CSS3 / Styling, and Semantics" title="HTML5 Powered with Connectivity / Realtime, CSS3 / Styling, and Semantics">
-				</a>
 			</div>
+			<br/>
+			<a href="http://www.w3.org/html/logo/">
+				<img src="http://www.w3.org/html/logo/badge/html5-badge-h-connectivity-css3-semantics.png" width="197" height="64" alt="HTML5 Powered with Connectivity / Realtime, CSS3 / Styling, and Semantics" title="HTML5 Powered with Connectivity / Realtime, CSS3 / Styling, and Semantics">
+			</a>
 		</footer>
 	</div>
 
@@ -125,16 +133,9 @@
 	<script>var remot = remot || { io: { uid: '<%- uid %>' } };</script>
 	<%- compactJsHtml() %>
 	
-	<!-- // <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script> -->
-
-	<div id="fb-root"></div>
-	<script>(function(d, s, id) {
-		var js, fjs = d.getElementsByTagName(s)[0];
-		if (d.getElementById(id)) return;
-		js = d.createElement(s); js.id = id;
-		js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=366577703404631";
-		fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));</script>
+	<!-- Social sharing scripts -->
+	<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+	<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 
 	<!-- Asynchronous Google Analytics snippet. mathiasbynens.be/notes/async-analytics-snippet -->
 	<script>
