@@ -5,12 +5,13 @@
 ( function ( $ ) {
 	'use strict'
 
-	var zSteps = $( 'section' );
+	var zSteps = $( 'section' ), timeout;
 
 	function init () {
 		remot.io.socket.on( 'connect', onConnect );
 		remot.io.socket.on( 'status', onStatus );
 		remot.io.socket.on( 'control', onControl );
+		zSteps.eq( 2 ).find('.bookmarklet').on( 'drag', onDrag );
 	}
 
 	/**
@@ -29,13 +30,25 @@
 		if ( e.status == 'linked' ) setCurrent( 1 );
 	}
 	/**
-	 * 
-	 * @param  {[type]} e [description]
-	 * @return {[type]}   [description]
+	 * Function handling custom socket event: control
+	 *  Event is triggered on predefined interactions on controlling device
+	 * @param  {Object} e Data sent with socketio
 	 */
 	function onControl ( e ) {
 		if ( e.type == 'swipeDown' ) setCurrent( 2 );
 		$( '#test-swipe-result' ).attr( 'data-type', e.type );
+	}
+
+	/**
+	 * Event handler for dragging the bookmarklet
+	 *   Can't detect actually adding bookmarklet to bookmarks bar, so fake it :)
+	 * @param  {Object} e Event object
+	 */
+	function onDrag ( e ) {
+		clearTimeout( timeout );
+		setTimeout( function() {
+			setCurrent( 3 );
+		}, 2000 );
 	}
 
 	/**
