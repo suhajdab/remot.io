@@ -15,6 +15,10 @@ body {
 	margin-top: -5px;
 }
 
+.masthead {
+	margin-bottom: 0;
+}
+
 .masthead p {
 	margin-bottom: 32px;
 	font-size: 28px;
@@ -46,8 +50,8 @@ body {
 
 section {
 	position: relative;
-	margin-bottom: 12px;
-	padding: 24px 36px;
+	/*margin-bottom: 12px;*/
+	padding: 18px 24px;
 	background-color: #fff;
 	border-radius: 5px;
 	box-shadow: 
@@ -111,6 +115,22 @@ section input {
 
 footer {
 	text-align: center;
+}
+
+footer .quick-links {
+	
+}
+
+footer .quick-links li {
+	margin: 0;
+}
+
+footer #by {
+	margin: 12px 0 24px;
+}
+
+.quick-links .github-btn, .quick-links .tweet-btn, .quick-links .follow-btn {
+	top: 0;
 }
 
 .btn-group {
