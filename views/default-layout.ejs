@@ -5,6 +5,7 @@
 
 	<title><%- title %> ∴ <%- descr %></title>
 	<meta name="description" content="<%- descr %>">
+	<meta name="version" content="<%- version %>">
 
 	<!-- Facebook Open Graph tags to describe the entity the page represents -->
 	<meta property="og:title" content="<%- title %>" />
@@ -28,7 +29,7 @@
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
-				<h1>remot.io</h1>
+				<h1>remot.io<sub><%- version %></sub></h1>
 				<div class="status"></div>
 			</div>
   	</div>
@@ -46,8 +47,8 @@
 		<div role="main">
 			<!-- TODO: add default text to tweet link -->
 			<!-- TODO: update humans.txt, readme.md, robots.txt -->
-			<!-- TODO: add html5 badge: http://www.w3.org/html/logo/#badge-builder -->
-			
+			<!-- TODO: autoscroll to next step: smoothscroll? -->
+
 			<!-- STEP 1 -->
 			<section>
 				<h2>Step 1</h2>
@@ -58,7 +59,7 @@
 						<a class="btn btn-primary" href="mailto:?subject=remot.io controller address&body=Open this address on your touch device to take control: http://<%- host %>/<%- uid %>/c" data-tracking="shareBy:email">Send via e-mail</a>
 						<a class="btn btn-primary js-qrcode" href="http://<%- host %>/<%- uid %>/c" data-tracking="shareBy:qrcode">Scan QRCode</a>
 					</div>
-					<details>First you need to open the controller page, which has the above address, on your touch device. You can type it's address, or use one of the buttons to either e-mail the link to yourself, or use a <a href="https://www.google.se/search?q=qrcode+scanning+apps">QRCode scanning app</a> to open it directly. This will send an event every time you swipe on your touch device to the browser running the presentation.</details>
+					<details>First you need to open the controller page, which has the above address, on your touch device. You can type it's address, or use one of the buttons to either e-mail the link to yourself, or use a <a href="https://www.google.se/search?q=qrcode+scanning+apps">QRCode scanning app</a> to open it directly.</details>
 				</article>
 			</section>
 
@@ -66,7 +67,6 @@
 			<section>
 				<h2>Step 2</h2>
 				<article>
-					<!-- auto collapse this section on swipe up, else display: "Swipe up, not down/left/right" -->
 					<p>Test the connection on your touch device by swiping down!</p>
 					<details>Your device appears to be connected to the server! Yey! This is indicated by the little circle ( pretending to be an LED in the upper right corner ) that just turned from orange to green.</details>
 					<span id="test-swipe-result">The other down! :)</span>
@@ -77,17 +77,17 @@
 			<section>
 				<h2>Step 3</h2>
 				<article>
-					<!-- any way to test this?? Auto close section after drag -->
 					<p>Drag this 
-						<a class="btn btn-primary" href="javascript:var remot={io:{uid:'<%- uid %>'}};(function(){var sc=document.createElement('SCRIPT');sc.type='text/javascript';sc.src='http://<%- host %>/js/compact/bookmarklet.js';document.getElementsByTagName('head')[0].appendChild(sc);})();">⚙ remot.io</a>
+						<a class="btn btn-primary bookmarkle" href="javascript:var remot={io:{uid:'<%- uid %>'}};(function(){var sc=document.createElement('SCRIPT');sc.type='text/javascript';sc.src='http://<%- host %>/js/compact/bookmarklet.js';document.getElementsByTagName('head')[0].appendChild(sc);})();">⚙ remot.io</a>
 						bookmarklet to your bookmarks.</p>
-						<details>By dragging the bookmarklet to your browser you can control any page the listens for key presses. Your swipes, on your touch device, translate to pressing one of the four arrow keys on the page where you activated the bookmarklet.</details>
+						<details>By dragging the bookmarklet to your browser you can control any page the listens for key presses or has an API remot.io can use. Your swipes, on your touch device, translate to pressing one of the four arrow keys on the page where you activated the bookmarklet.</details>
 				</article>
 			</section>
 
 			<!-- display when all steps are complete -->
 			<section class="no-box">
 				<h2>Ready!</h2>
+				<!-- TODO: autostep to this stage: dragstart + 3s timeout -->
 				<article>
 					You are ready to roll. Visit the awesome <a href="http://bartaz.github.com/impress.js/">impress.js</a> site for example and start swiping!
 					If the presentation framework you are using is not compatible with remot.io, let me know. We can probably fix that in no time!
@@ -103,22 +103,19 @@
 					</li>
 					<li>
 						<iframe class="github-btn" src="http://markdotto.github.com/github-buttons/github-btn.html?user=suhajdab&repo=remot.io&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="98px" height="20px"></iframe>
-					</li>
-					<li class="follow-btn">
-						<a href="https://twitter.com/remot_io" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="true">Follow @remot_io</a>
-					</li>
-					<li class="tweet-btn">
-						<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://suhajdab.github.com/remot.io/" data-count="horizontal" data-via="remot_io" data-related="mdo:Creator of remot.io">Tweet</a>
 					</li> -->
+					<li>
+						<iframe class="github-btn" src="http://markdotto.github.com/github-buttons/github-btn.html?user=suhajdab&repo=remot.io&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="112px" height="20px"></iframe>
+					</li>
+					<li>
+						<!-- Google +1 -->
+						<g:plusone size="medium"></g:plusone>
+					</li>
 					<li>
 						<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fremot.io&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21&amp;appId=366577703404631" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:110px; height:21px;" allowTransparency="true"></iframe>
 					</li>
 					<li>
 						<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://remot.io" data-via="remot_io">Tweet</a>
-					</li>
-					<li>
-						<!-- Google +1 -->
-						<g:plusone size="medium"></g:plusone>
 					</li>
 				</ul>
 			</div>
@@ -126,11 +123,14 @@
 			<a href="http://www.w3.org/html/logo/">
 				<img src="http://www.w3.org/html/logo/badge/html5-badge-h-connectivity-css3-semantics.png" width="197" height="64" alt="HTML5 Powered with Connectivity / Realtime, CSS3 / Styling, and Semantics" title="HTML5 Powered with Connectivity / Realtime, CSS3 / Styling, and Semantics">
 			</a>
+			<div id="by">
+				brought to you by <img src="img/1r.png" alt="onereason" title="onereason" />
+			</div>
 		</footer>
 	</div>
 
 
-	<script>var remot = remot || { io: { uid: '<%- uid %>' } };</script>
+	<script>var remot = { io: { uid: '<%- uid %>' } };</script>
 	<%- compactJsHtml() %>
 	
 	<!-- Social sharing scripts -->
