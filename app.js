@@ -40,6 +40,7 @@ compact.addNamespace('global')
 
 compact.addNamespace('controller')
 	.addJs('/remot.io.controller.socket.js')
+	.addJs('/remot.io.link.js')
 	.addJs('/remot.io.status.js')
 	.addJs('/remot.io.controller.events.js');
 
@@ -49,16 +50,20 @@ compact.addNamespace('default')
 	.addJs('/libs/html5-qrcode.js')
 	.addJs('/remot.io.qrcode.js')
 	.addJs('/remot.io.receiver.socket.js')
+	.addJs('/remot.io.link.js')
 	.addJs('/remot.io.status.js')
 	.addJs('/remot.io.steps.js')
-	.addJs('/remot.io.receiver.events.js');
+	.addJs('/remot.io.configs.js');
 
 compact.addNamespace('bookmarklet')
 	.addJs('/libs/socket.io.js')
 	.addJs('/libs/zepto.js')
 	.addJs('/remot.io.js')
+	.addJs('/remot.io.configs.js')
 	//.addJs('/remot.io.storage.js')
+	.addJs('/remot.io.trigger.js')
 	.addJs('/remot.io.receiver.socket.js')
+	.addJs('/remot.io.link.js')
 	.addJs('/remot.io.receiver.events.js');
 
 app.use(compact.js(['global']));
