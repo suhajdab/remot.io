@@ -3,6 +3,9 @@
 	TODO: config by object, instead of array & use extend to merge custom with defaults
 	TODO: robost cross browser keyup/keydown triggering
   TODO: error handling when not connected for long period
+
+  further reading on keyboard event triggers:
+   - http://help.dottoro.com/ljbwbehw.php
 */
 
 
@@ -14,11 +17,16 @@
 	function init () {
 		//	detect presentation framework to select config profile
 		config = defaults.config;
+		for ( var i = 0, c; c = remot.io.configs[ i ]; i++ ) {
+			if ( c.detector && c.detector() ) {
+				config = c;
+				break;
+			}
+		}
 		attachListener();
 	};
 
 	function attachListener() {
-		remot.io.socket.on( 'connect', onConnect );
 		remot.io.socket.on( 'control', onControl );
 	}
 
@@ -27,69 +35,17 @@
 		controlFeedback( e.type );
 	}
 
-	function onConnect ( e ) {
-		sendUid();
-	}
-
 	function controlFeedback( type ) {
 		document.body.dataset.eventType = type;
 	}
 
-	function sendUid() {
-		remot.io.socket.emit( 'uid', { uid: remot.io.uid });
-	}
-
 	function trigger ( type ) {
-		var ev, keyCode;
-		switch( type ) {
-			case 'swipeUp':
-				keyCode = keyCodes[config[2]];
-				break;
-			case 'swipeDown':
-				keyCode = keyCodes[config[3]];
-				break;
-			case 'swipeLeft':
-				keyCode = keyCodes[config[4]];
-				break;
-			case 'swipeRight':
-				keyCode = keyCodes[config[5]];
-				break;
+		if ( typeof config[ type ] == 'number' ) {
+			remot.io.trigger( config.eventTarget, config.eventType, config[ type ] );
+		} else if ( typeof config[ type ] == 'function' ) {
+			config[ type ]();
 		}
-
-
-		ev = document.createEvent( 'KeyboardEvent' );
-		Object.defineProperty( ev, 'keyCode', {
-			get: function(){
-				return this.keyCodeVal;
-			}
-		});
-		Object.defineProperty( ev, 'which', {
-			get: function(){
-				return this.keyCodeVal;
-			}
-		});
-		ev.initKeyboardEvent( config[ 1 ], true, false, null, 0, false, 0, false, keyCode, 0 );
-		ev.keyCodeVal = keyCode;
-		document.dispatchEvent( ev );
-
-		console.log( e );
 	}
-
-	var defaults = {
-		config: ['document','keyup','down','up','right','left','return','esc']
-	}
-
-	var keyCodes = {
-		'up'	:38,
-		'down'	:40,
-		'left'	:37,
-		'right'	:39,
-		'space'	:32,
-		'pgup'	:33,
-		'pgdown':34,
-		'tab'	:9,
-		'esc'	:27
-	};
 
 	init();
 
