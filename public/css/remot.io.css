@@ -22,3 +22,10 @@ h1 {
 	font-weight: normal;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, .1), 0 0 30px rgba(255, 255, 255, .125);
 }
+
+h1 sub {
+	bottom: -0.25em;
+	left: 3px;
+	color: #444;
+	font-size: 40%;
+}
