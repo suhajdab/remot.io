@@ -14,7 +14,7 @@
  * 	enter: 	13
  */
 
-remot.io.configs = 
+remot.io.profiles = 
 [
 	{
 		name: 'revealjs',

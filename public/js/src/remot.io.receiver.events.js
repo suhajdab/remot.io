@@ -15,9 +15,9 @@
 
 	function init () {
 		//	detect presentation framework to select config profile
-		for ( var i = 0, c; c = remot.io.configs[ i ]; i++ ) {
-			if ( c.detector && c.detector() ) {
-				config = c;
+		for ( var i = 0, p; p = remot.io.profiles[ i ]; i++ ) {
+			if ( p.detector && p.detector() ) {
+				config = p.config;
 				break;
 			}
 		}
