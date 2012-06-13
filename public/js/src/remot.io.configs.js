@@ -18,7 +18,7 @@ remot.io.configs =
 [
 	{
 		name: 'revealjs',
-		detector: function() { return Reveal && Reveal.navigateRight; },
+		detector: function() { return ( window.Reveal && window.Reveal.toggleOverview ); },
 		config: {
 			eventTarget: 	'document',
 			eventType: 		'keyup',
@@ -51,8 +51,8 @@ remot.io.configs =
 			eventType: 		'keyup',
 			swipeUp: 			38,
 			swipeDown: 		40,
-			swipeLeft: 		37,
-			swipeRight: 	39,
+			swipeLeft: 		39,
+			swipeRight: 	37,
 			pinch: 				27,
 			zoom: 				13
 		}
