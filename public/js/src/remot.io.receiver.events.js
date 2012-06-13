@@ -1,6 +1,4 @@
 /**
-	TODO: place configs & keyCodes is seperate module
-	TODO: config by object, instead of array & use extend to merge custom with defaults
 	TODO: robost cross browser keyup/keydown triggering
   TODO: error handling when not connected for long period
 
@@ -16,7 +14,6 @@
 
 	function init () {
 		//	detect presentation framework to select config profile
-		config = defaults.config;
 		for ( var i = 0, c; c = remot.io.configs[ i ]; i++ ) {
 			if ( c.detector && c.detector() ) {
 				config = c;
