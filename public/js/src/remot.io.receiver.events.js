@@ -18,6 +18,7 @@
 		for ( var i = 0, p; p = remot.io.profiles[ i ]; i++ ) {
 			if ( p.detector && p.detector() ) {
 				config = p.config;
+				console.log( 'using ' + p.name + ' profile' );
 				break;
 			}
 		}

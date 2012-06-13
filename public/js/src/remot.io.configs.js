@@ -26,13 +26,13 @@ remot.io.profiles =
 				Reveal.navigateDown();
 			},
 			swipeDown: 		function() {
-				Reveal.navigateDown();
+				Reveal.navigateUp();
 			},
 			swipeLeft: 		function() {
-				Reveal.navigateDown();
+				Reveal.navigateRight();
 			},
 			swipeRight: 	function() {
-				Reveal.navigateDown();
+				Reveal.navigateLeft();
 			},
 			pinch: 				function() {
 				Reveal.toggleOverview();
