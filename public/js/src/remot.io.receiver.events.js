@@ -38,7 +38,7 @@
 	}
 
 	function trigger ( type ) {
-		console.log(config[ type ]);
+		console.log(config, type, config[ type ]);
 		if ( typeof config[ type ] == 'number' ) {
 			remot.io.trigger( config.eventTarget, config.eventType, config[ type ] );
 		} else if ( typeof config[ type ] == 'function' ) {
