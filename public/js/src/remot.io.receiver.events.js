@@ -2,6 +2,8 @@
 	TODO: robost cross browser keyup/keydown triggering
   TODO: error handling when not connected for long period
   TODO: make sure receiver doesnt init multiple times when user clicks bookmarklet again
+  TODO: disconnect/reconnect as user switches tabs to allow bookmarklet to be active on sites simultaniously
+  TODO: Flattr maybe?
 
   further reading on keyboard event triggers:
    - http://help.dottoro.com/ljbwbehw.php

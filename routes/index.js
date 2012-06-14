@@ -1,4 +1,4 @@
-descr = 'a simple, no-install remote for your html presentations';
+descr = 'your html presentation simply deserves an html remote';
 title = 'remot.io';
 version = '0.8';
 googleUA = 'UA-207925-20';
