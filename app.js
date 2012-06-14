@@ -11,6 +11,7 @@
  * TODO: add status indicator to bookmarklet
  * TODO: multiple receivers, single controller ?
  * TODO: 404
+ * TODO: seperate out app.js parts by using var obj=require('./relative/path/to/js')
  */
 
 
@@ -117,16 +118,19 @@ Receiver.prototype = {
 	onUid: function ( e ) {
 		this.uid = e.uid;
 		receiverSockets[ this.uid ] = this.socket;
-		this.emitToController( 'status', { status : 'linked' });
-		if ( controllerSockets[ this.uid ] ) this.socket.emit( 'status', { status : 'linked' });
+		this.emitToController( 'status', { 
+			status: 'linked',
+			address: this.socket.handshake
+		});
+		if ( controllerSockets[ this.uid ] ) this.socket.emit( 'status', { status: 'linked' });
 	},
 	onDisconnect: function ( e ) {
 		this.emitToController( 'status', { status: 'unlinked'} );
 		delete receiverSockets[ this.uid ];
 	},
-	emitToController: function ( name, d ) {
+	emitToController: function ( name, data ) {
 		if ( controllerSockets[ this.uid ] ) {
-			controllerSockets[ this.uid ].emit( name, d );
+			controllerSockets[ this.uid ].emit( name, data );
 		}
 	}
 }
@@ -146,8 +150,11 @@ Controller.prototype = {
 	onUid: function ( e ) {
 		this.uid = e.uid;
 		controllerSockets[ this.uid ] = this.socket;
-		this.emitToReceiver( 'status', { status : 'linked' });
-		if ( receiverSockets[ this.uid ] ) this.socket.emit( 'status', { status : 'linked' });
+		this.emitToReceiver( 'status', { status: 'linked' });
+		if ( receiverSockets[ this.uid ] ) this.socket.emit( 'status', { 
+			status : 'linked',
+			address: this.socket.handshake
+		}); 
 	},
 	onControl: function ( e ) {
 		this.emitToReceiver( 'control', { type: e.type });
@@ -156,9 +163,9 @@ Controller.prototype = {
 		this.emitToReceiver( 'status', { status: 'unlinked'} );
 		delete controllerSockets[ this.uid ];
 	},
-	emitToReceiver: function ( name, d ) {
+	emitToReceiver: function ( name, data ) {
 		if ( receiverSockets[ this.uid ] ) {
-			receiverSockets[ this.uid ].emit( name, d );
+			receiverSockets[ this.uid ].emit( name, data );
 		}
 	}
 }
@@ -199,31 +206,6 @@ mailto:robert@broofa.com
 Copyright (c) 2010 Robert Kieffer
 Dual licensed under the MIT and GPL licenses.
 */
-
-/*
- * Generate a random uuid.
- *
- * USAGE: Math.uuid(length, radix)
- *   length - the desired number of characters
- *   radix  - the number of allowable values for each character.
- *
- * EXAMPLES:
- *   // No arguments  - returns RFC4122, version 4 ID
- *   >>> Math.uuid()
- *   "92329D39-6F5C-4520-ABFC-AAB64544E172"
- *
- *   // One argument - returns ID of the specified length
- *   >>> Math.uuid(15)     // 15 character ID (default base=62)
- *   "VcydxgltxrVZSTV"
- *
- *   // Two arguments - returns ID of the specified length, and radix. (Radix must be <= 62)
- *   >>> Math.uuid(8, 2)  // 8 character ID (base=2)
- *   "01001010"
- *   >>> Math.uuid(8, 10) // 8 character ID (base=10)
- *   "47473046"
- *   >>> Math.uuid(8, 16) // 8 character ID (base=16)
- *   "098F4D35"
- */
 (function() {
 	// Private array of chars to use
 	var CHARS = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
