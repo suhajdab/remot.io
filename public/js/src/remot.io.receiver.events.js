@@ -3,6 +3,7 @@
   TODO: error handling when not connected for long period
   TODO: make sure receiver doesnt init multiple times when user clicks bookmarklet again
   TODO: disconnect/reconnect as user switches tabs to allow bookmarklet to be active on sites simultaniously
+  	Use: Cross-browser Page Visibility ( https://gist.github.com/1122546 )
   TODO: Flattr maybe?
 
   further reading on keyboard event triggers:
