@@ -19,10 +19,9 @@
  * Module dependencies.
  */
 
-var express = require('express'),
-	routes = require('./routes');
-
-var app = module.exports = express.createServer(),
+var express = require("express"),
+	routes = require('./routes' ),
+	app = express(),
 	port    = process.env.PORT || 1337;
 
 
