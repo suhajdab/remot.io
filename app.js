@@ -22,7 +22,8 @@
 var express = require('express'),
 	routes = require('./routes');
 
-var app = module.exports = express.createServer();
+var app = module.exports = express.createServer(),
+	port    = process.env.PORT || 1337;
 
 
 // Set up compact for .js join & minify
@@ -98,7 +99,7 @@ app.get('/:uid/c', routes.controller);
 app.get('/:uid/bm.js', routes.bookmarklet);
 app.get('/', routes.index);
 
-app.listen(80);
+app.listen(port);
 
 
 
