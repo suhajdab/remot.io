@@ -22,6 +22,8 @@
 var express = require("express"),
 	routes = require('./routes' ),
 	app = express(),
+	server = require('http').createServer(app),
+	io = require('socket.io').listen(server),
 	port    = process.env.PORT || 1338;
 
 
@@ -98,7 +100,7 @@ app.get('/:uid/c', routes.controller);
 app.get('/:uid/bm.js', routes.bookmarklet);
 app.get('/', routes.index);
 
-app.listen(port);
+server.listen(port);
 
 
 
@@ -171,7 +173,6 @@ Controller.prototype = {
 }
 
 /*  socket.io  */
-io = require('socket.io').listen(app);
 var controllers = io
 	.of( '/controller' )
 	.on( 'connection', function ( socket ) {

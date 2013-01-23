@@ -1,1 +1,151 @@
-something something body
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title><%- title %> ∴ <%- descr %></title>
+	<meta name="description" content="<%- descr %>">
+	<meta name="version" content="<%- version %>">
+
+	<!-- Facebook Open Graph tags to describe the entity the page represents -->
+	<meta property="og:title" content="<%- title %>" />
+	<meta property="og:description" content="<%- descr %>" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="http://remot.io" />
+	<meta property="og:image" content="apple-touch-icon-144.png" />
+
+	<!-- Mobile viewport optimized: h5bp.com/viewport -->
+	<meta name="viewport" content="width=device-width">
+
+	<link rel="stylesheet" href="/css/bootstrap.css">
+	<link rel="stylesheet" href="/css/bootstrap-responsive.css">
+	<link rel="stylesheet" href="/css/docs.css">
+	<link rel="stylesheet" href="/css/remot.io.css">
+	<link rel="stylesheet" href="/css/remot.io.default.css">
+	<link rel="stylesheet" href="/css/remot.io.status.css">
+
+	<meta name="google-site-verification" content="nJtjxaMi2Ymf6Ai_UBAvdk8KPJkG0OhGClTjaGwaHEk" />
+</head>
+<body>
+
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<h1>remot.io<sub><%- version %></sub></h1>
+				<div class="status"></div>
+			</div>
+  	</div>
+  </div>
+
+	<div class="container">
+		<header class="jumbotron masthead">
+			<div class="inner">
+				<p ><%- descr %></p>
+			</div>
+		</header>
+
+		<hr class="soften">
+
+		<div role="main">
+			<!-- TODO: add default text to tweet link -->
+			<!-- TODO: update humans.txt, readme.md, robots.txt -->
+			<!-- TODO: autoscroll to next step: smoothscroll? -->
+
+			<!-- <div id="">
+				Working on finding the best option to connect to the server and it seems to be taking longer than usual.<br/>
+				By the way, the connection status is indicated by the little LED-like dot in the top right corner. Red means not connected to the server. Orange mean server connection has been established, but a mobile device has not connected yet. And green of course means everyting is ready, you can start swiping on your mobile and seeing results.
+			</div> -->
+
+			<!-- STEP 1 -->
+			<section>
+				<h2>Step 1</h2>
+				<article>
+				 	<!-- auto collapse this section when socket connection is up -->
+				 	<p>Open this url: <input type="text" value="http://<%- host %>/<%- uid %>/c" readOnly="true" /> on your touch device!</p>
+				 	<div class="btn-group">
+						<a class="btn btn-primary" href="mailto:?subject=remot.io controller address&body=Open this address on your touch device to take control: http://<%- host %>/<%- uid %>/c" data-tracking="shareBy:email">Send via e-mail</a>
+						<a class="btn btn-primary js-qrcode" href="http://<%- host %>/<%- uid %>/c" data-tracking="shareBy:qrcode">Scan QRCode</a>
+					</div>
+					<details>First you need to open the controller page, which has the above address, on your touch device. You can type it's address, or use one of the buttons to either e-mail the link to yourself, or use a <a href="https://www.google.se/search?q=qrcode+scanning+apps">QRCode scanning app</a> to open it directly.</details>
+				</article>
+			</section>
+
+			<!-- STEP 2 -->
+			<section>
+				<h2>Step 2</h2>
+				<article>
+					<p>Test the connection on your touch device by swiping down!</p>
+					<details>Your device appears to be connected to the server! Yey! This is indicated by the little circle ( pretending to be an LED in the upper right corner ) that just turned from orange to green.</details>
+					<span id="test-swipe-result">The other down! :)</span>
+				</article>
+			</section>
+
+			<!-- STEP 3 -->
+			<section>
+				<h2>Step 3</h2>
+				<article>
+					<p>Drag this 
+						<a class="btn btn-primary bookmarklet" href="javascript:var remot={io:{uid:'<%- uid %>'}};(function(){var sc=document.createElement('SCRIPT');sc.type='text/javascript';sc.src='http://<%- host %>/js/compact/bookmarklet.js';document.getElementsByTagName('head')[0].appendChild(sc);})();">⚙ remot.io</a>
+						bookmarklet to your bookmarks.</p>
+						<details>By dragging the bookmarklet to your browser you can control any page the listens for key presses or has an API remot.io can use. Your swipes, on your touch device, translate to pressing one of the four arrow keys on the page where you activated the bookmarklet.</details>
+				</article>
+			</section>
+
+			<!-- display when all steps are complete -->
+			<section class="no-box">
+				<h2>Ready!</h2>
+				<!-- TODO: autostep to this stage: dragstart + 3s timeout -->
+				<article>
+					You are ready to roll. Visit the awesome <a href="http://lab.hakim.se/reveal-js/">reveal.js</a> site for example, click on the bookmarklet and start swiping! And remember, your bookmarklet is paired with the link you sent to your touch device, so it would be a good idea to bookmark it, and then you can use that pair on any number of presentations. If the presentation framework you are using is not compatible with remot.io, let me know. I can probably fix that in no time!
+				</article>
+			</section>
+		</div>
+
+		<footer>
+			<div class="bs-links">
+				<ul class="quick-links">
+					<!-- <li>
+						<iframe class="github-btn" src="http://markdotto.github.com/github-buttons/github-btn.html?user=suhajdab&repo=remot.io&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="112px" height="20px"></iframe>
+					</li>
+					<li>
+						<iframe class="github-btn" src="http://markdotto.github.com/github-buttons/github-btn.html?user=suhajdab&repo=remot.io&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="98px" height="20px"></iframe>
+					</li> -->
+					<li>
+						<!-- Google +1 -->
+						<g:plusone size="medium"></g:plusone>
+					</li>
+					<li>
+						<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fremot.io&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21&amp;appId=366577703404631" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:110px; height:21px;" allowTransparency="true"></iframe>
+					</li>
+					<li>
+						<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://remot.io" data-via="remot_io">Tweet</a>
+					</li>
+				</ul>
+			</div>
+			<br/>
+			<a href="http://www.w3.org/html/logo/">
+				<img src="http://www.w3.org/html/logo/badge/html5-badge-h-connectivity-css3-semantics.png" width="197" height="64" alt="HTML5 Powered with Connectivity / Realtime, CSS3 / Styling, and Semantics" title="HTML5 Powered with Connectivity / Realtime, CSS3 / Styling, and Semantics">
+			</a>
+			<div id="by">
+				brought to you by <img src="img/1r.png" alt="onereason" title="onereason" />
+			</div>
+		</footer>
+	</div>
+
+
+	<script>var remot = { io: { uid: '<%- uid %>' } };</script>
+	<%- compactJsHtml() %>
+	
+	<!-- Social sharing scripts -->
+	<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+	<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+
+	<!-- Asynchronous Google Analytics snippet. mathiasbynens.be/notes/async-analytics-snippet -->
+	<script>
+		var _gaq=[['_setAccount','<%- googleUA %>'],['_trackPageview']];
+		(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+		g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+		s.parentNode.insertBefore(g,s)}(document,'script'));
+	</script>
+</body>
+</html>
