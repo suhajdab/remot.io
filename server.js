@@ -22,7 +22,7 @@
 var express = require("express"),
 	routes = require('./routes' ),
 	app = express(),
-	port    = process.env.PORT || 1337;
+	port    = process.env.PORT || 1338;
 
 
 // Set up compact for .js join & minify
@@ -139,7 +139,6 @@ Receiver.prototype = {
 
 //  Controller prototype
 function Controller ( socket ) {
-	var that = this;
 	this.socket = socket;
 	this.socket
 		.on( 'uid', this.onUid.bind( this ))

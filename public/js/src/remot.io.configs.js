@@ -18,27 +18,33 @@ remot.io.profiles =
 [
 	{
 		name: 'revealjs',
-		detector: function() { return ( window.Reveal && window.Reveal.toggleOverview ); },
+		detector: function() { return ( window.Reveal && window.Reveal.initialize ); },
 		config: {
 			eventTarget: 	'document',
 			eventType: 		'keyup',
 			swipeUp: 			function() {
-				Reveal.navigateDown();
+				Reveal.down();
 			},
 			swipeDown: 		function() {
-				Reveal.navigateUp();
+				Reveal.up();
 			},
 			swipeLeft: 		function() {
-				Reveal.navigateRight();
+				Reveal.right();
 			},
 			swipeRight: 	function() {
-				Reveal.navigateLeft();
+				Reveal.left();
+			},
+			tap: 	function() {
+				Reveal.next();
+			},
+			longTap: 	function() {
+				Reveal.prev();
 			},
 			pinch: 				function() {
-				Reveal.toggleOverview();
+				Reveal.toggleOverview( true );
 			},
 			zoom: 				function() {
-				Reveal.toggleOverview();
+				Reveal.toggleOverview( false );
 			}
 		}
 	},
