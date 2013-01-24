@@ -59,6 +59,8 @@ remot.io.profiles =
 			swipeDown: 		40,
 			swipeLeft: 		39,
 			swipeRight: 	37,
+			tap:          39,
+			longTap:      37,
 			pinch: 				27,
 			zoom: 				13
 		}
