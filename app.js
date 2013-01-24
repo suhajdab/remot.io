@@ -24,7 +24,7 @@ var express = require("express"),
 	app = express(),
 	server = require('http').createServer(app),
 	io = require('socket.io').listen(server),
-	port    = process.env.PORT || 1338;
+	port    = process.env.PORT || 3000;
 
 
 // Set up compact for .js join & minify
