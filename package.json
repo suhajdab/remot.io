@@ -1,6 +1,7 @@
 {
   "name": "remot.io",
   "version": "0.4.0",
+	"scripts": {"start": "node app.js"},
   "dependencies": {
     "express": "~3.0.6",
     "ejs": "~0.8.3",
