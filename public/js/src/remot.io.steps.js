@@ -28,6 +28,7 @@
 	 */
 	function onStatus ( e ) {
 		if ( e.status == 'linked' ) setCurrent( 1 );
+		$( document ).trigger( 'click' ); // trigger closing of qr overlay
 	}
 	/**
 	 * Function handling custom socket event: control
