@@ -1,1 +1,74 @@
-controller.ejs
+<!doctype html>
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title><%- title %></title>
+    <meta name="description" content="<%- descr %>">
+
+    <!-- Mobile viewport optimization h5bp.com/ad -->
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="/css/h5mbp.css">
+    <link rel="stylesheet" href="/css/remot.io.css">
+    <link rel="stylesheet" href="/css/remot.io.controller.css">
+    <link rel="stylesheet" href="/css/remot.io.status.css">
+
+    <!-- <script src="js/libs/modernizr-2.0.6.min.js"></script> -->
+</head>
+
+<body>
+
+<div id="container">
+    <header>
+        <h1>remot.io</h1>
+        <div class="status"></div>
+    </header>
+    <div id="main" role="main" class="nocallout">
+        <!-- TODO: create appCache to download from server only when something changed -->
+        <!-- TODO: create update notification for appCache -->
+        <!-- TODO: write a simple guide + tips here about usage, status indicator -->
+        <p>
+            Supported gestures and their associated default action
+            <ul>
+                <li><strong>Tap</strong>: Next slide</li>
+                <li><strong>Long tap</strong>: Previous slide</li>
+                <li><strong>Swipe left</strong>: Advance right</li>
+                <li><strong>Swipe right</strong>: Advance left</li>
+                <li><strong>Swipe down</strong>: Advance up</li>
+                <li><strong>Swipe up</strong>: Advance down</li>
+                <!--
+                TODO: zoom & pinch don't seem to work :S
+                <li><strong>Pinch</strong>: Esc</li>
+                <li><strong>Zoom</strong>: Enter</li>
+                -->
+            </ul>
+            <strong>Don't forget to lock orientation on your device, so directions don't rotate as you move your hand around during your presentation! ;)</strong>
+        </p>
+        <div id="you-cant-touch">Sorry, but is seems you device doesn't support touch events and the remot.io controller currently requires that!</div>
+    </div>
+</div> <!--! end of #container -->
+
+
+<!-- JavaScript at the bottom for fast page loading -->
+<script>var remot = remot || { io: { uid: '<%- uid %>' } };</script>
+<%- compactJsHtml() %>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+    var _gaq=[["_setAccount","<%- googleUA %>"],["_trackPageview"]];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+        g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
+        s.parentNode.insertBefore(g,s)}(document,"script"));
+</script>
+
+</body>
+</html>

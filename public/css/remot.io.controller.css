@@ -29,6 +29,12 @@ header .status {
 	margin-top: -5px;
 }
 
+#main {
+	padding: 12px;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
 #you-cant-touch {
 	display: none;
 }

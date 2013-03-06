@@ -19,10 +19,12 @@
  * Module dependencies.
  */
 
-var express = require('express'),
-	routes = require('./routes');
-
-var app = module.exports = express.createServer();
+var express = require("express"),
+	routes = require('./routes' ),
+	app = express(),
+	server = require('http').createServer(app),
+	io = require('socket.io').listen(server),
+	port    = process.env.PORT || 80;
 
 
 // Set up compact for .js join & minify
@@ -59,6 +61,7 @@ compact.addNamespace('default')
 compact.addNamespace('bookmarklet')
 	.addJs('/libs/socket.io.js')
 	.addJs('/libs/zepto.js')
+	.addJs('/libs/window.visibly.js')
 	.addJs('/remot.io.js')
 	.addJs('/remot.io.configs.js')
 	//.addJs('/remot.io.storage.js')
@@ -97,7 +100,7 @@ app.get('/:uid/c', routes.controller);
 app.get('/:uid/bm.js', routes.bookmarklet);
 app.get('/', routes.index);
 
-app.listen(80);
+server.listen(port);
 
 
 
@@ -138,7 +141,6 @@ Receiver.prototype = {
 
 //  Controller prototype
 function Controller ( socket ) {
-	var that = this;
 	this.socket = socket;
 	this.socket
 		.on( 'uid', this.onUid.bind( this ))
@@ -171,7 +173,6 @@ Controller.prototype = {
 }
 
 /*  socket.io  */
-io = require('socket.io').listen(app);
 var controllers = io
 	.of( '/controller' )
 	.on( 'connection', function ( socket ) {

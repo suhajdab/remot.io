@@ -1,10 +1,11 @@
 {
-	"name": "remot.io",
-	"version": "0.0.1",
-	"dependencies": {
-		"express": "latest",
-	 	"ejs": "latest",
-		"socket.io": "latest",
-		"compact": "latest"
-	}
+  "name": "remot.io",
+  "version": "0.4.0",
+	"scripts": {"start": "node app.js"},
+  "dependencies": {
+    "express": "~3.0.6",
+    "ejs": "~0.8.3",
+    "socket.io": "~0.9.13",
+    "compact": "~0.1.0"
+  }
 }

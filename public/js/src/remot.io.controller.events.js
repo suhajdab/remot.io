@@ -17,6 +17,8 @@
 			.on( 'swipeRight', 	onSwipe )
 			.on( 'swipeUp', 	onSwipe )
 			.on( 'swipeDown', 	onSwipe )
+			.on( 'tap', 	onTap )
+			.on( 'longTap', 	onTap )
 			.on( 'touchmove', 	onTouchMove );
 
 		//	socket connection events
@@ -27,6 +29,10 @@
 	function onSwipe ( e ) {
 		emitControl( e.type );
 		swipeFeedback( e.type );
+	}
+
+	function onTap ( e ) {
+		emitControl( e.type );
 	}
 
 	function onTouchMove ( e ) {
