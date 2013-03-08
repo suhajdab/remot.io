@@ -17,7 +17,8 @@
     "node": "0.8.x"
   },
   "domains": [
-    "remot.io"
+    "remot.io",
+    "www.remot.io"
   ],
   "subdomain": "remotio"
 }
