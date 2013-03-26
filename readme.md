@@ -1,4 +1,4 @@
-# [remot.io](http://remot.io)
+# [remot.io](http://remot.io) [![Nodejitsu Deploy Status Badges](https://webhooks.nodejitsu.com/suhajdab/remot.io.png)](https://webops.nodejitsu.com#nodejitsu/webhooks)
 
 by [@suhajdab](http://twitter/suhajdab) @ [onereason.eu](http://onereason.eu)
 
