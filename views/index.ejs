@@ -34,7 +34,7 @@
 				<h1>remot.io<sub><%- version %></sub></h1>
 				<div class="status"></div>
 			</div>
-  	</div>
+	</div>
   </div>
 
 	<div class="container">
@@ -60,9 +60,9 @@
 			<section>
 				<h2>Step 1</h2>
 				<article>
-				 	<!-- auto collapse this section when socket connection is up -->
-				 	<p>Open this url: <input type="text" value="http://<%- host %>/<%- uid %>/c" readOnly="true" /> on your touch device!</p>
-				 	<div class="btn-group">
+					<!-- auto collapse this section when socket connection is up -->
+					<p>Open this url: <input type="text" value="http://<%- host %>/<%- uid %>/c" readOnly="true" /> on your touch device!</p>
+					<div class="btn-group">
 						<a class="btn btn-primary" href="mailto:?subject=remot.io controller address&body=Open this address on your touch device to take control: http://<%- host %>/<%- uid %>/c" data-tracking="shareBy:email">Send via e-mail</a>
 						<a class="btn btn-primary js-qrcode" href="http://<%- host %>/<%- uid %>/c" data-tracking="shareBy:qrcode" rel="nofollow">Scan QRCode</a>
 					</div>
@@ -104,9 +104,9 @@
 		<footer>
 			<div class="bs-links">
 				<ul class="quick-links">
-                    <li style="margin-right: 20px;">
-                        <iframe src="http://ghbtns.com/github-btn.html?user=suhajdab&amp;repo=remot.io&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="85px" height="20px"></iframe>
-                    </li>
+					<li style="margin-right: 20px;">
+						<iframe src="http://ghbtns.com/github-btn.html?user=suhajdab&amp;repo=remot.io&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="85px" height="20px"></iframe>
+					</li>
 					<li>
 						<!-- Google +1 -->
 						<g:plusone size="medium"></g:plusone>
@@ -116,6 +116,9 @@
 					</li>
 					<li>
 						<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://remot.io" data-via="remot_io">Tweet</a>
+					</li>
+					<li>
+						<a class="FlattrButton" style="display:none;" rev="flattr;button:compact;" href="http://remot.io"></a>
 					</li>
 				</ul>
 			</div>
@@ -143,6 +146,15 @@
 		(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
 		g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
 		s.parentNode.insertBefore(g,s)}(document,'script'));
+	</script>
+	<script>
+		 (function() {
+			var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+			s.type = 'text/javascript';
+			s.async = true;
+			s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+			t.parentNode.insertBefore(s, t);
+		})();
 	</script>
 </body>
 </html>
