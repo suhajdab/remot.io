@@ -75,6 +75,45 @@ section {
 	transition: all 250ms ease-in-out;
 }
 
+section h2 {
+	position: absolute;
+	top: 18px;
+	left: 24px;
+	color: rgb(193,216,47);
+	font-size: 78px;
+	line-height: 1;
+}
+
+section p {
+	min-height: 66px;
+	margin: 10px 0;
+	padding-left: 66px;
+	font-size: 180%;
+	line-height: 130%;
+	text-align: center;
+}
+
+section details {
+	margin: 10px 0;
+	outline: none;
+}
+
+section summary:focus {
+	outline: none;
+}
+
+section summary::-webkit-details-marker {
+	color: #C1D82F;
+}
+
+section input[readonly] {
+	width: 228px;
+	margin-bottom: 0;
+	cursor: text; /* seeing read-only cursor is not nice */
+	font-family: monospace;
+	text-align: center;
+}
+
 section.current {
 	box-shadow: 
 		0 20px 10px -10px rgba(0, 0, 0, 0.1),
@@ -115,32 +154,15 @@ section.no-box {
 	box-shadow: none;
 }
 
-section p {
-	font-size: 120%;
-	line-height: 200%;
-	text-align: center;
+section.no-box h2 {
+	position: relative;
+	left: 0;
+	top: 0;
+	font-size: 36px;
 }
 
-section details {
-	margin: 10px 0;
-	outline: none;
-}
 
-section summary {
-	outline: none;
-}
-
-section summary::-webkit-details-marker {
-	color: #C1D82F;
-}
-
-section input {
-	width: 216px;
-	margin-bottom: 0;
-	font-family: monospace;
-	text-align: center;
-}
-
+/* FOOTER */
 footer {
 	text-align: center;
 }
