@@ -27,6 +27,15 @@ var express = require("express"),
 	port    = process.env.PORT || 80;
 
 
+// Trying to optimize socketio setup speed
+io.configure('production', function(){
+  io.set('transports', [
+  	'xhr-polling',
+  	'jsonp-polling'
+  ]);
+});
+
+
 // Set up compact for .js join & minify
 var compact = require('compact').createCompact({
 	srcPath: __dirname + '/public/js/src/',
