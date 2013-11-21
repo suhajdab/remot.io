@@ -1,8 +1,8 @@
 {
   "name": "remot.io",
-	"engines": {
-		"node": "0.8.x"
-	},
+  "engines": {
+    "node": "0.8.x"
+  },
   "version": "0.4.0",
   "scripts": {
     "start": "node app.js"
@@ -13,12 +13,14 @@
     "socket.io": "~0.9.13",
     "compact": "~0.1.0"
   },
-  "engines": {
-    "node": "0.8.x"
-  },
   "domains": [
     "remot.io",
     "www.remot.io"
   ],
-  "subdomain": "remotio"
+  "subdomain": "remotio",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.4.3",
+    "grunt-contrib-watch": "~0.4.2"
+  }
 }
