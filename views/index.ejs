@@ -88,7 +88,7 @@
 				<article>
 					<p>
 						Drag this 
-						<a class="btn btn-primary bookmarklet" href="javascript:var remot={io:{uid:'<%- uid %>'}};(function(){var sc=document.createElement('SCRIPT');sc.type='text/javascript';sc.src='http://<%- host %>/js/compact/bookmarklet.js';document.getElementsByTagName('head')[0].appendChild(sc);})();">⚙ remot.io</a>
+						<a class="btn btn-primary bookmarklet" href="javascript:var remot={io:{uid:'<%- uid %>'}};(function(){var sc=document.createElement('SCRIPT');if(remot.io.socket) return;sc.type='text/javascript';sc.src='http://<%- host %>/js/compact/bookmarklet.js';document.getElementsByTagName('head')[0].appendChild(sc);})();">⚙ remot.io</a>
 						bookmarklet to your bookmarks.
 					</p>
 					<aside>
