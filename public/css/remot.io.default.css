@@ -125,6 +125,7 @@ section details {
 section input {
 	width: 216px;
 	margin-bottom: 0;
+	background: #fff;
 	font-family: monospace;
 	text-align: center;
 }
