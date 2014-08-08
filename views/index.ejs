@@ -40,7 +40,7 @@
 	<div class="container">
 		<header class="jumbotron masthead">
 			<div class="inner">
-				<p ><%- descr %></p>
+				<p>Remote controll your html presentations in 3 easy steps</p>
 			</div>
 		</header>
 
@@ -58,36 +58,42 @@
 
 			<!-- STEP 1 -->
 			<section>
-				<h2>Step 1</h2>
+				<h2>1.</h2>
 				<article>
 					<!-- auto collapse this section when socket connection is up -->
-					<p>Open this url: <input type="text" value="http://<%- host %>/<%- uid %>/c" readOnly="true" /> on your touch device!</p>
-					<div class="btn-group">
+					<p>
+						Open this url: <input type="text" value="http://<%- host %>/<%- uid %>/c" readOnly="true" /> on your touch device! <br/>
 						<a class="btn btn-primary" href="mailto:?subject=remot.io controller address&body=Open this address on your touch device to take control: http://<%- host %>/<%- uid %>/c" data-tracking="shareBy:email">Send via e-mail</a>
 						<a class="btn btn-primary js-qrcode" href="http://<%- host %>/<%- uid %>/c" data-tracking="shareBy:qrcode" rel="nofollow">Scan QRCode</a>
-					</div>
-					<details>First you need to open the controller page, which has the above address, on your touch device. You can type it's address, or use one of the buttons to either e-mail the link to yourself, or use a <a href="https://www.google.se/search?q=qrcode+scanning+apps">QRCode scanning app</a> to open it directly.</details>
+					</p>
+					<aside>
+						First you need to open the controller page, which has the above address, on your touch device. You can type it's address, or use one of the buttons to either e-mail the link to yourself, or use a <a href="https://www.google.se/search?q=qrcode+scanning+apps">QRCode scanning app</a> to open it directly.
+					</aside>
 				</article>
 			</section>
 
 			<!-- STEP 2 -->
 			<section>
-				<h2>Step 2</h2>
+				<h2>2.</h2>
 				<article>
 					<p>Test the connection on your touch device by swiping down!</p>
-					<details>Your device appears to be connected to the server! Yey! This is indicated by the little circle ( pretending to be an LED in the upper right corner ) that just turned from orange to green.</details>
+					<aside>Your device appears to be connected to the server! Yey! This is indicated by the little circle ( pretending to be an LED in the upper right corner ) that just turned from orange to green.</aside>
 					<span id="test-swipe-result">The other down! :)</span>
 				</article>
 			</section>
 
 			<!-- STEP 3 -->
 			<section>
-				<h2>Step 3</h2>
+				<h2>3.</h2>
 				<article>
-					<p>Drag this 
+					<p>
+						Drag this 
 						<a class="btn btn-primary bookmarklet" href="javascript:if(!remot){var remot={io:{uid:'<%- uid %>'}};(function(){var sc=document.createElement('SCRIPT');sc.type='text/javascript';sc.src='http://<%- host %>/js/compact/bookmarklet.js';document.getElementsByTagName('head')[0].appendChild(sc);})();}">⚙ remot.io</a>
-						bookmarklet to your bookmarks.</p>
-						<details>By dragging the bookmarklet to your browser you can control any page the listens for key presses or has an API remot.io can use. Your swipes, on your touch device, translate to pressing one of the four arrow keys on the page where you activated the bookmarklet.</details>
+						bookmarklet to your bookmarks.
+					</p>
+					<aside>
+						By dragging the bookmarklet to your browser you can control any page the listens for key presses or has an API remot.io can use. Your swipes, on your touch device, translate to pressing one of the four arrow keys on the page where you activated the bookmarklet.
+					</aside>
 				</article>
 			</section>
 
@@ -118,7 +124,7 @@
 						<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://remot.io" data-via="remot_io">Tweet</a>
 					</li>
 					<li>
-						<a class="FlattrButton" style="display:none;" rev="flattr;button:compact;" href="http://remot.io"></a>
+						<script data-gittip-username="suhajdab" data-gittip-widget="button" src="//gttp.co/v1.js"></script>
 					</li>
 				</ul>
 			</div>
@@ -146,15 +152,6 @@
 		(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
 		g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
 		s.parentNode.insertBefore(g,s)}(document,'script'));
-	</script>
-	<script>
-		 (function() {
-			var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
-			s.type = 'text/javascript';
-			s.async = true;
-			s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
-			t.parentNode.insertBefore(s, t);
-		})();
 	</script>
 </body>
 </html>
