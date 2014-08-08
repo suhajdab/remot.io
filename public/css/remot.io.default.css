@@ -161,6 +161,13 @@ section.no-box h2 {
 	font-size: 36px;
 }
 
+section input {
+	width: 216px;
+	margin-bottom: 0;
+	background: #fff;
+	font-family: monospace;
+	text-align: center;
+}
 
 /* FOOTER */
 footer {
