@@ -2,7 +2,7 @@
 
 by [@suhajdab](http://twitter/suhajdab) @ [onereason.eu](http://onereason.eu)
 
-Remot.io is a simple, no install controller for html based presentations. Well, actually it can be used with on page that listenes for keyboard events or has a javascript API. The remot.io configuration can easily be extended to call a custom method depending on the page the bookmarklet has been run on.
+Remot.io is a simple, no install controller for html based presentations. Well, actually it can be used with any page that listenes for keyboard events or has a javascript API. The remot.io configuration can easily be extended to call a custom method depending on the page the bookmarklet has been run on.
 
 
 
